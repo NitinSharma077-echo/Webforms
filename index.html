@@ -19,30 +19,30 @@
    TOKENS
    ============================================================ */
         :root {
-            --bg-0: #12151A;
-            /* deepest background */
-            --bg-1: #181C22;
+            --bg-0: #F6F5F1;
+            /* lightest background (paper/steel white) */
+            --bg-1: #FFFFFF;
             /* section background */
-            --bg-2: #1F242B;
+            --bg-2: #FFFFFF;
             /* panel / card background */
-            --bg-3: #272D35;
+            --bg-3: #EEECE4;
             /* elevated panel */
-            --steel: #3A424C;
+            --steel: #D8D4CA;
             /* borders / dividers */
-            --steel-soft: rgba(255, 255, 255, 0.08);
-            --text-0: #F3F1EB;
-            /* primary text (warm off-white) */
-            --text-1: #B7BEC7;
+            --steel-soft: rgba(20, 20, 18, 0.09);
+            --text-0: #1B1E22;
+            /* primary text (near-black graphite) */
+            --text-1: #4E545B;
             /* secondary text */
-            --text-2: #7A828C;
+            --text-2: #767C82;
             /* muted / captions */
-            --red: #E23A2E;
+            --red: #D2321F;
             /* Petrotek red */
-            --red-dark: #B82920;
-            --amber: #D89A3D;
+            --red-dark: #A82419;
+            --amber: #A9701C;
             /* oil-gold accent */
-            --amber-soft: rgba(216, 154, 61, 0.14);
-            --green-ok: #5CA36B;
+            --amber-soft: rgba(169, 112, 28, 0.12);
+            --green-ok: #3F8A52;
 
             --font-display: 'Oswald', sans-serif;
             --font-body: 'IBM Plex Sans', sans-serif;
@@ -234,7 +234,7 @@
             left: 0;
             right: 0;
             z-index: 200;
-            background: rgba(18, 21, 26, 0.86);
+            background: rgba(246, 245, 241, 0.86);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--steel-soft);
         }
@@ -262,6 +262,7 @@
             background: #fff;
             padding: 6px 10px;
             border-radius: 2px;
+            border: 1px solid var(--steel);
         }
 
         .nav-logo .logo-fallback {
@@ -508,7 +509,7 @@
             border: 1px solid var(--steel);
             border-radius: 6px;
             padding: 28px 26px 24px;
-            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 24px 48px -20px rgba(30, 28, 20, 0.18);
         }
 
         .gauge-card .gc-label {
@@ -1005,7 +1006,7 @@
             width: 100%;
             height: 100%;
             border: 0;
-            filter: grayscale(1) invert(0.92) contrast(0.9);
+            filter: grayscale(1) contrast(1.02);
         }
 
         .form-panel {
@@ -1095,6 +1096,11 @@
             font-size: 14.5px !important;
         }
 
+        #crmWebToEntityForm .zcwf_col_fld textarea {
+            min-height: 96px !important;
+            resize: vertical !important;
+        }
+
         #crmWebToEntityForm .zcwf_col_fld input:focus,
         #crmWebToEntityForm .zcwf_col_fld textarea:focus,
         #crmWebToEntityForm .zcwf_col_fld_slt:focus {
@@ -1115,7 +1121,7 @@
             border-radius: 3px !important;
             -webkit-appearance: none;
             appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%23B7BEC7' stroke-width='1.6' fill='none'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%234E545B' stroke-width='1.6' fill='none'/></svg>");
             background-repeat: no-repeat;
             background-position: right 14px center;
         }
@@ -1201,6 +1207,7 @@
             background: #fff;
             padding: 6px 10px;
             border-radius: 2px;
+            border: 1px solid var(--steel);
         }
 
         .footer-brand p {
@@ -1379,19 +1386,19 @@
                         aria-label="Illustrative viscosity gauge showing product performance readout">
                         <div class="gc-label"><span>Viscosity Index</span><b>&#9679; In Spec</b></div>
                         <svg class="gauge-svg" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M30 150 A120 120 0 0 1 270 150" stroke="#3A424C" stroke-width="14" fill="none"
+                            <path d="M30 150 A120 120 0 0 1 270 150" stroke="#E1DDD1" stroke-width="14" fill="none"
                                 stroke-linecap="round" />
-                            <path d="M30 150 A120 120 0 0 1 150 30" stroke="#E23A2E" stroke-width="14" fill="none"
+                            <path d="M30 150 A120 120 0 0 1 150 30" stroke="#D2321F" stroke-width="14" fill="none"
                                 stroke-linecap="round" />
-                            <path d="M150 30 A120 120 0 0 1 220 55" stroke="#D89A3D" stroke-width="14" fill="none"
+                            <path d="M150 30 A120 120 0 0 1 220 55" stroke="#A9701C" stroke-width="14" fill="none"
                                 stroke-linecap="round" />
-                            <path d="M220 55 A120 120 0 0 1 270 150" stroke="#5CA36B" stroke-width="14" fill="none"
+                            <path d="M220 55 A120 120 0 0 1 270 150" stroke="#3F8A52" stroke-width="14" fill="none"
                                 stroke-linecap="round" />
                             <g class="gauge-needle">
-                                <line x1="150" y1="150" x2="150" y2="45" stroke="#F3F1EB" stroke-width="3" />
-                                <circle cx="150" cy="150" r="8" fill="#F3F1EB" />
+                                <line x1="150" y1="150" x2="150" y2="45" stroke="#1B1E22" stroke-width="3" />
+                                <circle cx="150" cy="150" r="8" fill="#1B1E22" />
                             </g>
-                            <text x="150" y="145" text-anchor="middle" fill="#7A828C" font-family="IBM Plex Mono"
+                            <text x="150" y="145" text-anchor="middle" fill="#767C82" font-family="IBM Plex Mono"
                                 font-size="10">ISO VG</text>
                         </svg>
                         <div class="gauge-readout">
@@ -1413,20 +1420,20 @@
             <div class="container">
                 <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M8 1l2.2 4.6L15 6.3l-3.5 3.3.8 4.9L8 12.2 3.7 14.5l.8-4.9L1 6.3l4.8-.7L8 1z"
-                            stroke="#D89A3D" stroke-width="1.1" fill="none" />
+                            stroke="#A9701C" stroke-width="1.1" fill="none" />
                     </svg> NSF Certified Lines</span>
                 <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="6.5" stroke="#D89A3D" stroke-width="1.1" />
-                        <path d="M5 8l2 2 4-4" stroke="#D89A3D" stroke-width="1.1" fill="none" />
+                        <circle cx="8" cy="8" r="6.5" stroke="#A9701C" stroke-width="1.1" />
+                        <path d="M5 8l2 2 4-4" stroke="#A9701C" stroke-width="1.1" fill="none" />
                     </svg> ISO 21469 Compliant</span>
                 <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M8 1v14M1 8h14" stroke="#D89A3D" stroke-width="1.1" />
+                        <path d="M8 1v14M1 8h14" stroke="#A9701C" stroke-width="1.1" />
                     </svg> FDA-Aligned Formulations</span>
                 <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M2 9l3 3 9-9" stroke="#D89A3D" stroke-width="1.1" fill="none" />
+                        <path d="M2 9l3 3 9-9" stroke="#A9701C" stroke-width="1.1" fill="none" />
                     </svg> GCC-Wide Door-to-Door Delivery</span>
                 <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke="#D89A3D" stroke-width="1.1" />
+                        <rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke="#A9701C" stroke-width="1.1" />
                     </svg> Est. 2007 &middot; Abu Dhabi</span>
             </div>
         </div>
@@ -1794,17 +1801,17 @@
                             style='background-color: white;color: black;max-width: 600px;'>
                             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                             <META HTTP-EQUIV='content-type' CONTENT='text/html;charset=UTF-8'>
-                            <form id='webform1352143000000569002' action='https://crm.zoho.in/crm/WebToLeadForm'
-                                name=WebToLeads1352143000000569002 method='POST'
-                                onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1352143000000569002()'
+                            <form id='webform1352143000000577001' action='https://crm.zoho.in/crm/WebToLeadForm'
+                                name=WebToLeads1352143000000577001 method='POST'
+                                onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1352143000000577001()'
                                 accept-charset='UTF-8'>
                                 <input type='text' style='display:none;' name='xnQsjsdp'
-                                    value='30a66b398c4af978d3e40080099dc88d932b37b346fe0bd97681aae9ebe59dd8'>
+                                    value='e31760fedf49b1e671d150e5a134d2dec9f53a658917a9166a63dd56192fd6e2'>
                                 </input>
                                 <input type='hidden' name='zc_gad' id='zc_gad' value=''>
                                 </input>
                                 <input type='text' style='display:none;' name='xmIwtLD'
-                                    value='27da3de8e1adec3cd75780af246a4dacc5ac60fbdc8b8dd62e38c7d4f9b8c7cb6820d9d246a96f63ddf0bc29027e4e1c'>
+                                    value='167fd0192334edad1409d5ec9ee2aa5b7c90c15ef59184b929420c1cb1ca18188e566b5e6448fd425b3c0f71d3b170a6'>
                                 </input>
                                 <input type='text' style='display:none;' name='actionType' value='TGVhZHM='>
                                 </input>
@@ -1812,27 +1819,7 @@
                                 </input>
                                 <!-- Do not remove this code. -->
                                 <div class='zcwf_title' style='max-width: 600px;color: black; font-family:Arial;'>Lead
-                                    Generation</div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Salutation'>Salutation</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <select class='zcwf_col_fld_slt' role='combobox' aria-expanded='false'
-                                            aria-haspopup='listbox' id='Salutation'
-                                            onChange='addAriaSelected1352143000000569002()' aria-required='false'
-                                            aria-label='Salutation' name='Salutation'>
-                                            <option value='-None-'>-None-</option>
-                                            <option value='Mr.'>Mr.</option>
-                                            <option value='Mrs.'>Mrs.</option>
-                                            <option value='Ms.'>Ms.</option>
-                                            <option value='Dr.'>Dr.</option>
-                                            <option value='Prof.'>Prof.</option>
-                                        </select>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
+                                    Capture</div>
                                 <div class='zcwf_row'>
                                     <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
                                         <label for='First_Name'>First Name</label>
@@ -1875,12 +1862,37 @@
                                 </div>
                                 <div class='zcwf_row'>
                                     <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+                                        <label for='Email'>Email</label>
+                                    </div>
+                                    <div class='zcwf_col_fld'>
+                                        <input type='text' ftype='email' autocomplete='false' id='Email'
+                                            aria-required='false' aria-label='Email' name='Email' aria-valuemax='100'
+                                            crmlabel='' maxlength='100'>
+                                        </input>
+                                        <div class='zcwf_col_help'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='zcwf_row'>
+                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+                                        <label for='Phone'>Phone</label>
+                                    </div>
+                                    <div class='zcwf_col_fld'>
+                                        <input type='text' id='Phone' aria-required='false' aria-label='Phone'
+                                            name='Phone' aria-valuemax='30' maxlength='30'>
+                                        </input>
+                                        <div class='zcwf_col_help'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='zcwf_row'>
+                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
                                         <label for='Industry'>Industry</label>
                                     </div>
                                     <div class='zcwf_col_fld'>
                                         <select class='zcwf_col_fld_slt' role='combobox' aria-expanded='false'
                                             aria-haspopup='listbox' id='Industry'
-                                            onChange='addAriaSelected1352143000000569002()' aria-required='false'
+                                            onChange='addAriaSelected1352143000000577001()' aria-required='false'
                                             aria-label='Industry' name='Industry'>
                                             <option value='-None-'>-None-</option>
                                             <option value='Government/Military'>Government/Military</option>
@@ -1916,49 +1928,12 @@
                                 </div>
                                 <div class='zcwf_row'>
                                     <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Website'>Website</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Website' aria-required='false' aria-label='Website'
-                                            name='Website' aria-valuemax='255' maxlength='255'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Email'>Email</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' ftype='email' autocomplete='false' id='Email'
-                                            aria-required='false' aria-label='Email' name='Email' aria-valuemax='100'
-                                            crmlabel='' maxlength='100'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Phone'>Phone</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Phone' aria-required='false' aria-label='Phone'
-                                            name='Phone' aria-valuemax='30' maxlength='30'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
                                         <label for='Address_-_Country_/_Region'>Address - Country / Region</label>
                                     </div>
                                     <div class='zcwf_col_fld'>
                                         <select class='zcwf_col_fld_slt' role='combobox' aria-expanded='false'
                                             aria-haspopup='listbox' id='Address_-_Country_/_Region'
-                                            onChange='addAriaSelected1352143000000569002()' aria-required='false'
+                                            onChange='addAriaSelected1352143000000577001()' aria-required='false'
                                             aria-label='Address - Country / Region' name='Address - Country / Region'>
                                             <option selected value='-None-'>-None-</option>
                                         </select>
@@ -1993,24 +1968,15 @@
                                     </div>
                                 </div>
                                 <div class='zcwf_row'>
-                                    <div class='zcwf_privacy'>
-                                        <div class='dIB vaT' align='left'>
-                                            <div class='displayPurpose crm-small-font-size'>
-                                                <label class='newCustomchkbox-md dIB w100_per'>
-                                                    <input autocomplete='off' id='privacyTool1352143000000569002'
-                                                        type='checkbox' aria-checked='false' name=''
-                                                        aria-errormessage='privacyErr1352143000000569002'
-                                                        aria-label='privacyTool'
-                                                        onclick='disableErr1352143000000569002()'>
-                                                </label>
-                                            </div>
+                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+                                        <label for='Description'>Description</label>
+                                    </div>
+                                    <div class='zcwf_col_fld'>
+                                        <textarea style='font-family: Arial, sans-serif;' aria-multiline='true'
+                                            id='Description' aria-required='false' aria-label='Description'
+                                            name='Description'></textarea>
+                                        <div class='zcwf_col_help'>
                                         </div>
-                                        <div class='dIB zcwf_privacy_txt'
-                                            style='font-size: 12px;font-family:Arial;color: black;'>I agree to the
-                                            Privacy Policy and Terms of Service.</div>
-                                        <div id='privacyErr1352143000000569002' aria-live='polite'
-                                            style='font-size:12px;color:red;padding-left: 5px;visibility:hidden;'>Please
-                                            accept this</div>
                                     </div>
                                 </div>
                                 <input type='text' type='hidden' style='display: none;' name='aG9uZXlwb3Q' value='' />
@@ -2026,7 +1992,7 @@
                                     </div>
                                 </div>
                                 <script>
-                                    function addAriaSelected1352143000000569002() {
+                                    function addAriaSelected1352143000000577001() {
                                         var optionElem = event.target;
                                         var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
                                         if (previousSelectedOption) {
@@ -2034,27 +2000,8 @@
                                         }
                                         optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected = 'true';
                                     }
-                                    function privacyAlert1352143000000569002() {
-                                        var privacyTool = document.getElementById('privacyTool1352143000000569002');
-                                        var privacyErr = document.getElementById('privacyErr1352143000000569002');
-                                        if (privacyTool != undefined && !privacyTool.checked) {
-                                            privacyErr.style.visibility = 'visible';
-                                            privacyTool.ariaInvalid = 'true';
-                                            privacyTool.focus();
-                                            return false;
-                                        }
-                                        return true;
-                                    }
-                                    function disableErr1352143000000569002() {
-                                        var privacyTool = document.getElementById('privacyTool1352143000000569002');
-                                        var privacyErr = document.getElementById('privacyErr1352143000000569002');
-                                        if (privacyTool != undefined && privacyTool.checked && privacyErr != undefined) {
-                                            privacyErr.style.visibility = 'hidden';
-                                            privacyTool.ariaInvalid = 'false';
-                                        }
-                                    }
-                                    function validateEmail1352143000000569002() {
-                                        var form = document.forms['WebToLeads1352143000000569002'];
+                                    function validateEmail1352143000000577001() {
+                                        var form = document.forms['WebToLeads1352143000000577001'];
                                         var emailFld = form.querySelectorAll('[ftype=email]');
                                         var i;
                                         for (i = 0; i < emailFld.length; i++) {
@@ -2071,11 +2018,11 @@
                                         }
                                         return true;
                                     }
-                                    function checkMandatory1352143000000569002(isAjax) {
+                                    function checkMandatory1352143000000577001(isAjax) {
                                         var mndFileds = new Array('Company', 'Last Name');
                                         var fldLangVal = new Array('Company', 'Last Name');
                                         for (i = 0; i < mndFileds.length; i++) {
-                                            var fieldObj = document.forms['WebToLeads1352143000000569002'][mndFileds[i]];
+                                            var fieldObj = document.forms['WebToLeads1352143000000577001'][mndFileds[i]];
                                             if (fieldObj) {
                                                 if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
                                                     if (fieldObj.type == 'file') {
@@ -2106,15 +2053,12 @@
                                                 } catch (e) { }
                                             }
                                         }
-                                        if (!validateEmail1352143000000569002()) {
-                                            return false;
-                                        }
-                                        if (!privacyAlert1352143000000569002()) {
+                                        if (!validateEmail1352143000000577001()) {
                                             return false;
                                         }
                                         var urlparams = new URLSearchParams(window.location.search);
                                         if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
-                                            var webform = document.getElementById('webform1352143000000569002');
+                                            var webform = document.getElementById('webform1352143000000577001');
                                             var service = urlparams.get('service');
                                             var smarturlfield = document.createElement('input');
                                             smarturlfield.setAttribute('type', 'hidden');
@@ -2124,7 +2068,7 @@
                                         }
                                         document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
                                     }
-                                    function tooltipShow1352143000000569002(el) {
+                                    function tooltipShow1352143000000577001(el) {
                                         var tooltip = el.nextElementSibling;
                                         var tooltipDisplay = tooltip.style.display;
                                         if (tooltipDisplay == 'none') {
@@ -2138,12 +2082,12 @@
                                         }
                                     }
                                 </script>
-                                <script id='webformDependencyScript1352143000000569002'
-                                    src='https://crm.zohopublic.in/crm/WebFormDependencies?rid=ccd21fa4b30883e14c641e13417e4d804a853dc30996152ad02aca83b7164beb'>
+                                <script id='webformDependencyScript1352143000000577001'
+                                    src='https://crm.zohopublic.in/crm/WebFormDependencies?rid=ccd21fa4b30883e14c641e13417e4d80502c79ca74d2ca5e233b113bd7b4fe1e'>
                                     </script>
                                 <!-- Do not remove this --- Analytics Tracking code starts -->
                                 <script id='wf_anal'
-                                    src='https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=54f8eb2aff082c97a8c9b10c68a3fb84583f241ac6d4650f69ec492f807341e5117e50769a3d17eb3d0203a413798c1egidf01d9c8d6a36e2624ab43d82a6d8090b29a635a0235fb208abbf371f190fa90egidd8a71f7df357813df6922fc86bcf600e2b0a8d38fb2161dc6d53e19dc647a087gid7d06f98c055f4e7bd6af26e2c7455ac5cc097c7e3bb8f111eca7dd53436d08d7&tw=86f66e44270fe88d2d2e7b96d7e750f66f2b9692ca6517314bb79928122b1bd1'>
+                                    src='https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=ec28388880ea62f461589a40a077becfd654b0b2b02e2594c07c0df2eff096b6e610771240f74eb1a5d003f902d2245bgid918f5df6df9719a8ec2463ca82681bd2e261069331f629d20f26cee4626c2da4gidbe20693f224aa2fa1897ff72e7e46140636a33f1cb3e626858af969bb5cbcce8gid8d9dad4acf2547c363bad0ea34bc08b3d8633e83148791ccebb22e6e62565855&tw=14377558e162118d0113935b59c8cae77d8dd39ff81d9ff30c9f55a43cac7e62'>
                                     </script>
                                 <!-- Do not remove this --- Analytics Tracking code ends. -->
                             </form>
