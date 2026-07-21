@@ -1,2200 +1,916 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petrotek | Industrial Lubricants, Oils &amp; Greases | UAE &amp; GCC</title>
-    <meta name="description"
-        content="Petrotek General Trading LLC — industrial lubricants, oils, greases and engineering supplies serving the UAE and GCC since 2007. NSF and ISO certified. Fast door-to-door delivery.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* ============================================================
-   TOKENS
-   ============================================================ */
-        :root {
-            --bg-0: #F6F5F1;
-            /* lightest background (paper/steel white) */
-            --bg-1: #FFFFFF;
-            /* section background */
-            --bg-2: #FFFFFF;
-            /* panel / card background */
-            --bg-3: #EEECE4;
-            /* elevated panel */
-            --steel: #D8D4CA;
-            /* borders / dividers */
-            --steel-soft: rgba(20, 20, 18, 0.09);
-            --text-0: #1B1E22;
-            /* primary text (near-black graphite) */
-            --text-1: #4E545B;
-            /* secondary text */
-            --text-2: #767C82;
-            /* muted / captions */
-            --red: #D2321F;
-            /* Petrotek red */
-            --red-dark: #A82419;
-            --amber: #A9701C;
-            /* oil-gold accent */
-            --amber-soft: rgba(169, 112, 28, 0.12);
-            --green-ok: #3F8A52;
-
-            --font-display: 'Oswald', sans-serif;
-            --font-body: 'IBM Plex Sans', sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
-
-            --container: 1180px;
-            --radius: 3px;
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg-0);
-            color: var(--text-0);
-            font-family: var(--font-body);
-            font-size: 16px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            margin: 0;
-            font-family: var(--font-display);
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-
-        p {
-            margin: 0;
-        }
-
-        section {
-            position: relative;
-        }
-
-        .container {
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 0 28px;
-        }
-
-        ::selection {
-            background: var(--red);
-            color: #fff;
-        }
-
-        /* focus visibility */
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 2px solid var(--amber);
-            outline-offset: 2px;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.001ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.001ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
-        /* ============================================================
-   UTILITY / SHARED
-   ============================================================ */
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--amber);
-            margin-bottom: 16px;
-        }
-
-        .eyebrow::before {
-            content: '';
-            width: 22px;
-            height: 2px;
-            background: var(--red);
-            display: inline-block;
-        }
-
-        .section-head {
-            max-width: 640px;
-            margin-bottom: 56px;
-        }
-
-        .section-head h2 {
-            font-size: clamp(28px, 4vw, 42px);
-            color: var(--text-0);
-            line-height: 1.15;
-            text-transform: uppercase;
-        }
-
-        .section-head p {
-            margin-top: 16px;
-            color: var(--text-1);
-            font-size: 16px;
-            max-width: 560px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            font-family: var(--font-mono);
-            font-size: 13px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            border-radius: var(--radius);
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
-            white-space: nowrap;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background: var(--red);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #ff4a3b;
-        }
-
-        .btn-ghost {
-            border-color: var(--steel);
-            color: var(--text-0);
-        }
-
-        .btn-ghost:hover {
-            border-color: var(--amber);
-            color: var(--amber);
-        }
-
-        .btn-arrow {
-            transition: transform .18s ease;
-        }
-
-        .btn:hover .btn-arrow {
-            transform: translateX(3px);
-        }
-
-        /* ============================================================
-   HEADER / NAV
-   ============================================================ */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 200;
-            background: rgba(246, 245, 241, 0.86);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--steel-soft);
-        }
-
-        .nav {
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 0 28px;
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-logo img {
-            height: 30px;
-            width: auto;
-            background: #fff;
-            padding: 6px 10px;
-            border-radius: 2px;
-            border: 1px solid var(--steel);
-        }
-
-        .nav-logo .logo-fallback {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            color: #fff;
-            background: var(--red);
-            padding: 6px 12px;
-            border-radius: 2px;
-        }
-
-        .nav-logo .logo-tag {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            display: none;
-        }
-
-        @media(min-width:860px) {
-            .nav-logo .logo-tag {
-                display: block;
-            }
-        }
-
-        .nav-links {
-            display: none;
-            align-items: center;
-            gap: 34px;
-            font-family: var(--font-mono);
-            font-size: 13px;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-        }
-
-        .nav-links a {
-            color: var(--text-1);
-            position: relative;
-            padding: 4px 0;
-            transition: color .15s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -2px;
-            height: 2px;
-            background: var(--red);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-0);
-        }
-
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-        }
-
-        @media(min-width:960px) {
-            .nav-links {
-                display: flex;
-            }
-        }
-
-        .nav-cta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-phone {
-            display: none;
-            font-family: var(--font-mono);
-            font-size: 13px;
-            color: var(--text-1);
-        }
-
-        @media(min-width:1100px) {
-            .nav-phone {
-                display: inline-block;
-            }
-        }
-
-        .nav-toggle {
-            display: inline-flex;
-            background: none;
-            border: 1px solid var(--steel);
-            color: var(--text-0);
-            width: 42px;
-            height: 42px;
-            border-radius: 2px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        @media(min-width:960px) {
-            .nav-toggle {
-                display: none;
-            }
-        }
-
-        .mobile-menu {
-            position: fixed;
-            inset: 76px 0 0 0;
-            background: var(--bg-0);
-            z-index: 190;
-            display: none;
-            flex-direction: column;
-            padding: 32px 28px;
-            gap: 6px;
-            overflow-y: auto;
-        }
-
-        .mobile-menu.open {
-            display: flex;
-        }
-
-        .mobile-menu a {
-            font-family: var(--font-display);
-            font-size: 26px;
-            text-transform: uppercase;
-            color: var(--text-0);
-            padding: 14px 0;
-            border-bottom: 1px solid var(--steel-soft);
-        }
-
-        .mobile-menu .btn {
-            margin-top: 20px;
-            align-self: flex-start;
-        }
-
-        /* ============================================================
-   HERO
-   ============================================================ */
-        .hero {
-            position: relative;
-            padding: 168px 0 96px;
-            overflow: hidden;
-            background:
-                radial-gradient(ellipse 900px 500px at 82% -10%, rgba(226, 58, 46, 0.16), transparent 60%),
-                var(--bg-0);
-        }
-
-        .hero-grid-bg {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(var(--steel-soft) 1px, transparent 1px),
-                linear-gradient(90deg, var(--steel-soft) 1px, transparent 1px);
-            background-size: 56px 56px;
-            mask-image: linear-gradient(to bottom, black, transparent 85%);
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .hero-inner {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 56px;
-            align-items: center;
-        }
-
-        @media(min-width:980px) {
-            .hero-inner {
-                grid-template-columns: 1.15fr 0.85fr;
-            }
-        }
-
-        .hero-copy h1 {
-            font-size: clamp(38px, 5.6vw, 64px);
-            line-height: 1.04;
-            text-transform: uppercase;
-            color: var(--text-0);
-        }
-
-        .hero-copy h1 span {
-            color: var(--red);
-        }
-
-        .hero-copy .lede {
-            margin-top: 22px;
-            font-size: 18px;
-            color: var(--text-1);
-            max-width: 520px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 36px;
-        }
-
-        .hero-meta {
-            margin-top: 48px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 36px;
-        }
-
-        .hero-meta div {
-            min-width: 110px;
-        }
-
-        .hero-meta .num {
-            font-family: var(--font-display);
-            font-size: 30px;
-            color: var(--amber);
-            line-height: 1;
-        }
-
-        .hero-meta .lab {
-            margin-top: 6px;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-2);
-        }
-
-        /* Signature: viscosity gauge */
-        .gauge-wrap {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gauge-card {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            background: linear-gradient(160deg, var(--bg-2), var(--bg-1));
-            border: 1px solid var(--steel);
-            border-radius: 6px;
-            padding: 28px 26px 24px;
-            box-shadow: 0 24px 48px -20px rgba(30, 28, 20, 0.18);
-        }
-
-        .gauge-card .gc-label {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .gauge-card .gc-label b {
-            color: var(--green-ok);
-            font-weight: 600;
-        }
-
-        .gauge-svg {
-            width: 100%;
-            height: auto;
-            margin: 12px 0 4px;
-        }
-
-        .gauge-needle {
-            transform-origin: 150px 150px;
-            animation: needleSettle 2.6s cubic-bezier(.2, .9, .25, 1) 0.4s both;
-        }
-
-        @keyframes needleSettle {
-            0% {
-                transform: rotate(-92deg);
-            }
-
-            60% {
-                transform: rotate(28deg);
-            }
-
-            100% {
-                transform: rotate(8deg);
-            }
-        }
-
-        .gauge-readout {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-top: 8px;
-        }
-
-        .gauge-readout .val {
-            font-family: var(--font-mono);
-            font-size: 26px;
-            color: var(--text-0);
-        }
-
-        .gauge-readout .unit {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-2);
-        }
-
-        .gauge-tags {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .gauge-tags span {
-            font-family: var(--font-mono);
-            font-size: 10.5px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--text-1);
-            border: 1px solid var(--steel);
-            border-radius: 2px;
-            padding: 5px 9px;
-        }
-
-        /* ============================================================
-   LOGO / TRUST STRIP
-   ============================================================ */
-        .trust-strip {
-            border-top: 1px solid var(--steel-soft);
-            border-bottom: 1px solid var(--steel-soft);
-            background: var(--bg-1);
-            padding: 26px 0;
-        }
-
-        .trust-strip .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 28px 40px;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-mono);
-            font-size: 12.5px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--text-2);
-        }
-
-        .trust-strip span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .trust-strip svg {
-            flex: none;
-        }
-
-        /* ============================================================
-   ABOUT
-   ============================================================ */
-        .about {
-            padding: 110px 0;
-            background: var(--bg-0);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 56px;
-        }
-
-        @media(min-width:940px) {
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .about-copy p+p {
-            margin-top: 16px;
-        }
-
-        .about-copy p {
-            color: var(--text-1);
-            font-size: 16px;
-        }
-
-        .about-facts {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: var(--steel);
-            border: 1px solid var(--steel);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .about-facts .fact {
-            background: var(--bg-2);
-            padding: 26px 22px;
-        }
-
-        .about-facts .fact .n {
-            font-family: var(--font-display);
-            font-size: 32px;
-            color: var(--red);
-        }
-
-        .about-facts .fact .l {
-            margin-top: 8px;
-            font-size: 13.5px;
-            color: var(--text-1);
-        }
-
-        /* ============================================================
-   PRODUCTS
-   ============================================================ */
-        .products {
-            padding: 110px 0;
-            background: var(--bg-1);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1px;
-            background: var(--steel);
-            border: 1px solid var(--steel);
-        }
-
-        .product-card {
-            background: var(--bg-2);
-            padding: 32px 26px;
-            transition: background .2s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .product-card:hover {
-            background: var(--bg-3);
-        }
-
-        .product-card .pc-icon {
-            width: 44px;
-            height: 44px;
-            color: var(--amber);
-        }
-
-        .product-card h3 {
-            font-size: 19px;
-            text-transform: uppercase;
-            color: var(--text-0);
-        }
-
-        .product-card p {
-            color: var(--text-1);
-            font-size: 14.5px;
-            flex: 1;
-        }
-
-        .product-card .pc-link {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--red);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .product-card .pc-link svg {
-            transition: transform .18s ease;
-        }
-
-        .product-card:hover .pc-link svg {
-            transform: translateX(3px);
-        }
-
-        /* ============================================================
-   INDUSTRIES
-   ============================================================ */
-        .industries {
-            padding: 110px 0;
-            background: var(--bg-0);
-        }
-
-        .industry-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .industry-chip {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid var(--steel);
-            border-radius: 40px;
-            padding: 12px 20px;
-            font-size: 14.5px;
-            color: var(--text-1);
-            transition: border-color .2s ease, color .2s ease;
-        }
-
-        .industry-chip:hover {
-            border-color: var(--amber);
-            color: var(--text-0);
-        }
-
-        .industry-chip .dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--red);
-            flex: none;
-        }
-
-        /* ============================================================
-   WHY US
-   ============================================================ */
-        .why {
-            padding: 110px 0;
-            background: var(--bg-1);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1px;
-            background: var(--steel);
-            border: 1px solid var(--steel);
-        }
-
-        @media(min-width:760px) {
-            .why-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media(min-width:1140px) {
-            .why-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .why-card {
-            background: var(--bg-2);
-            padding: 30px 26px;
-        }
-
-        .why-card .idx {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--amber);
-            letter-spacing: 0.08em;
-        }
-
-        .why-card h3 {
-            margin-top: 14px;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-
-        .why-card p {
-            margin-top: 10px;
-            font-size: 14px;
-            color: var(--text-1);
-        }
-
-        /* ============================================================
-   CERTIFICATIONS
-   ============================================================ */
-        .certs {
-            padding: 64px 0;
-            background: var(--bg-0);
-            border-top: 1px solid var(--steel-soft);
-            border-bottom: 1px solid var(--steel-soft);
-        }
-
-        .certs .container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 28px 44px;
-        }
-
-        .certs .certs-label {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            flex: none;
-        }
-
-        .cert-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-mono);
-            font-size: 13px;
-            color: var(--text-1);
-            border: 1px solid var(--steel);
-            padding: 9px 16px;
-            border-radius: 3px;
-        }
-
-        .cert-badge b {
-            color: var(--text-0);
-        }
-
-        /* ============================================================
-   TESTIMONIALS
-   ============================================================ */
-        .testimonials {
-            padding: 110px 0;
-            background: var(--bg-1);
-        }
-
-        .t-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        @media(min-width:860px) {
-            .t-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .t-card {
-            background: var(--bg-2);
-            border: 1px solid var(--steel);
-            border-radius: 4px;
-            padding: 30px 26px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .t-card .quote-mark {
-            color: var(--red);
-            font-size: 34px;
-            font-family: var(--font-display);
-            line-height: 1;
-        }
-
-        .t-card p {
-            color: var(--text-1);
-            font-size: 14.5px;
-            flex: 1;
-        }
-
-        .t-card .who {
-            font-family: var(--font-mono);
-            font-size: 12.5px;
-            color: var(--text-2);
-            border-top: 1px solid var(--steel-soft);
-            padding-top: 14px;
-        }
-
-        .t-card .who b {
-            color: var(--text-0);
-            display: block;
-            font-family: var(--font-body);
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-
-        /* ============================================================
-   CONTACT + FORM
-   ============================================================ */
-        .contact {
-            padding: 110px 0 130px;
-            background: var(--bg-0);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 48px;
-        }
-
-        @media(min-width:980px) {
-            .contact-grid {
-                grid-template-columns: 0.85fr 1.15fr;
-            }
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--steel-soft);
-        }
-
-        .contact-item .ci-icon {
-            width: 22px;
-            height: 22px;
-            color: var(--red);
-            flex: none;
-            margin-top: 2px;
-        }
-
-        .contact-item h4 {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-2);
-            font-family: var(--font-mono);
-            font-weight: 500;
-        }
-
-        .contact-item p,
-        .contact-item a {
-            margin-top: 6px;
-            font-size: 15.5px;
-            color: var(--text-0);
-        }
-
-        .map-box {
-            margin-top: 8px;
-            border: 1px solid var(--steel);
-            border-radius: 4px;
-            overflow: hidden;
-            height: 200px;
-        }
-
-        .map-box iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            filter: grayscale(1) contrast(1.02);
-        }
-
-        .form-panel {
-            background: var(--bg-2);
-            border: 1px solid var(--steel);
-            border-radius: 6px;
-            padding: 8px;
-        }
-
-        .form-panel-inner {
-            padding: 28px 26px 10px;
-        }
-
-        .form-panel-inner .fp-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--amber);
-        }
-
-        .form-panel-inner .fp-title {
-            margin-top: 10px;
-            font-size: 24px;
-            text-transform: uppercase;
-            color: var(--text-0);
-        }
-
-        .form-panel-inner .fp-sub {
-            margin-top: 10px;
-            font-size: 14px;
-            color: var(--text-1);
-            max-width: 480px;
-        }
-
-        /* ---- Zoho form re-theme (keep required functional attrs/ids intact) ---- */
-        #crmWebToEntityForm.zcwf_lblLeft {
-            background: transparent !important;
-            color: var(--text-0) !important;
-            padding: 20px 0 8px !important;
-            font-family: var(--font-body) !important;
-        }
-
-        #crmWebToEntityForm .zcwf_title {
-            display: none;
-        }
-
-        /* replaced by fp-title above */
-        #crmWebToEntityForm .zcwf_row {
-            margin: 0 0 20px 0 !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_lab {
-            width: 100% !important;
-            float: none !important;
-            font-family: var(--font-mono) !important;
-            font-size: 11.5px !important;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--text-2) !important;
-            padding: 0 0 8px 0 !important;
-            margin: 0 !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_lab label span {
-            color: var(--red) !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_fld {
-            width: 100% !important;
-            float: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_fld input[type=text],
-        #crmWebToEntityForm .zcwf_col_fld input[type=password],
-        #crmWebToEntityForm .zcwf_col_fld textarea {
-            width: 100% !important;
-            float: none !important;
-            background: var(--bg-1) !important;
-            border: 1px solid var(--steel) !important;
-            border-radius: 3px !important;
-            color: var(--text-0) !important;
-            padding: 12px 14px !important;
-            font-family: var(--font-body) !important;
-            font-size: 14.5px !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_fld textarea {
-            min-height: 96px !important;
-            resize: vertical !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_fld input:focus,
-        #crmWebToEntityForm .zcwf_col_fld textarea:focus,
-        #crmWebToEntityForm .zcwf_col_fld_slt:focus {
-            outline: 2px solid var(--amber) !important;
-            outline-offset: 1px;
-            border-color: var(--amber) !important;
-        }
-
-        #crmWebToEntityForm .zcwf_col_fld_slt {
-            width: 100% !important;
-            float: none !important;
-            background: var(--bg-1) !important;
-            border: 1px solid var(--steel) !important;
-            color: var(--text-0) !important;
-            padding: 12px 14px !important;
-            font-family: var(--font-body) !important;
-            font-size: 14.5px !important;
-            border-radius: 3px !important;
-            -webkit-appearance: none;
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%234E545B' stroke-width='1.6' fill='none'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-        }
-
-        #crmWebToEntityForm .zcwf_col_help {
-            display: none !important;
-        }
-
-        #crmWebToEntityForm .zcwf_privacy {
-            padding: 6px 0 !important;
-        }
-
-        #crmWebToEntityForm .zcwf_privacy_txt {
-            color: var(--text-1) !important;
-            font-family: var(--font-body) !important;
-            font-size: 13px !important;
-        }
-
-        #crmWebToEntityForm input[type=checkbox] {
-            width: 17px;
-            height: 17px;
-            accent-color: var(--red);
-            margin-top: 2px;
-        }
-
-        #crmWebToEntityForm .formsubmit.zcwf_button {
-            background: var(--red) !important;
-            background-image: none !important;
-            border: none !important;
-            color: #fff !important;
-            font-family: var(--font-mono) !important;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            font-size: 13px !important;
-            padding: 14px 30px !important;
-            border-radius: 3px !important;
-            cursor: pointer;
-        }
-
-        #crmWebToEntityForm .formsubmit.zcwf_button:hover {
-            background: #ff4a3b !important;
-        }
-
-        #crmWebToEntityForm input[type=reset].zcwf_button {
-            background: transparent !important;
-            border: 1px solid var(--steel) !important;
-            color: var(--text-1) !important;
-            font-family: var(--font-mono) !important;
-            font-size: 13px !important;
-            padding: 14px 22px !important;
-            border-radius: 3px !important;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        #crmWebToEntityForm .zcwf_row:last-of-type .zcwf_col_fld {
-            display: flex;
-        }
-
-        /* ============================================================
-   FOOTER
-   ============================================================ */
-        .site-footer {
-            background: var(--bg-1);
-            border-top: 1px solid var(--steel-soft);
-            padding: 64px 0 28px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media(min-width:820px) {
-            .footer-grid {
-                grid-template-columns: 1.3fr 1fr 1fr 1fr;
-            }
-        }
-
-        .footer-brand img {
-            height: 28px;
-            background: #fff;
-            padding: 6px 10px;
-            border-radius: 2px;
-            border: 1px solid var(--steel);
-        }
-
-        .footer-brand p {
-            margin-top: 16px;
-            color: var(--text-2);
-            font-size: 13.5px;
-            max-width: 280px;
-        }
-
-        .footer-col h5 {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-2);
-            margin-bottom: 16px;
-        }
-
-        .footer-col ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-col a {
-            color: var(--text-1);
-            font-size: 14px;
-        }
-
-        .footer-col a:hover {
-            color: var(--amber);
-        }
-
-        .footer-bottom {
-            margin-top: 56px;
-            padding-top: 24px;
-            border-top: 1px solid var(--steel-soft);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: space-between;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-2);
-        }
-
-        /* back to top */
-        .to-top {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--bg-3);
-            border: 1px solid var(--steel);
-            color: var(--text-0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity .2s ease, visibility .2s ease, transform .18s ease;
-            z-index: 150;
-        }
-
-        .to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .to-top:hover {
-            transform: translateY(-3px);
-            border-color: var(--amber);
-        }
-
-        /* reveal-on-scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(18px);
-            transition: opacity .6s ease, transform .6s ease;
-        }
-
-        .reveal.in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Towell Auto Centre</title>
+<style>
+  :root{
+    --tac-blue: #0033A0;
+    --tac-blue-dark: #001f66;
+    --tac-blue-light: #2b5fd9;
+    --tac-grey: #f4f6fa;
+    --tac-text: #1c2333;
+    --tac-muted: #6b7280;
+    --white: #ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--tac-text);
+    background: var(--white);
+    line-height: 1.5;
+  }
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+
+  /* Header */
+  header{
+    position: sticky; top:0; z-index: 100;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .topbar{
+    background: var(--tac-blue-dark);
+    color: var(--white);
+    font-size: 13px;
+    padding: 6px 24px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+  }
+  .topbar .contact-info{display:flex; gap:20px; flex-wrap:wrap;}
+  .navwrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .logo{font-weight:800; font-size:22px; color:var(--tac-blue); letter-spacing:0.5px;}
+  nav ul{display:flex; gap:28px;}
+  nav ul li{position:relative;}
+  nav ul li > a{
+    font-weight:600; font-size:14px; letter-spacing:0.3px;
+    color: var(--tac-text);
+    padding: 8px 0;
+    display:block;
+  }
+  nav ul li > a:hover{color:var(--tac-blue);}
+  nav ul li .submenu{
+    display:none;
+    position:absolute; top:100%; left:0;
+    background:var(--white);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-radius: 6px;
+    padding: 8px 0;
+    min-width:180px;
+  }
+  nav ul li:hover .submenu{display:block;}
+  nav ul li .submenu a{padding:8px 16px; font-size:13px; font-weight:500;}
+  nav ul li .submenu a:hover{background:var(--tac-grey); color:var(--tac-blue);}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    min-height: 520px;
+    background: linear-gradient(120deg, var(--tac-blue-dark), var(--tac-blue) 60%, var(--tac-blue-light));
+    color: var(--white);
+    display:flex; align-items:center;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background: url('https://towellauto.com/en/wp-content/uploads/revslider/slider-1/Automotive-Header.jpg') center/cover;
+    opacity: 0.35;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    max-width:1400px; margin:0 auto; padding: 60px 24px;
+    width:100%;
+  }
+  .hero-inner h1{
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight:800;
+    max-width: 620px;
+    line-height:1.15;
+    margin-bottom: 18px;
+  }
+  .hero-inner p{
+    font-size:17px; max-width:520px; opacity:0.92; margin-bottom: 28px;
+  }
+  .hero-cta{
+    display:inline-block;
+    background: var(--white);
+    color: var(--tac-blue);
+    font-weight:700;
+    padding: 12px 28px;
+    border-radius: 4px;
+    transition: transform .15s ease;
+  }
+  .hero-cta:hover{transform: translateY(-2px);}
+  .hero-tags{
+    display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;
+  }
+  .hero-tags span{
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing: 0.5px;
+  }
+
+  section{padding: 70px 24px;}
+  .section-inner{max-width:1400px; margin:0 auto;}
+  .section-title{
+    text-align:center; margin-bottom: 44px;
+  }
+  .section-title h2{
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight:800;
+    color: var(--tac-blue-dark);
+    letter-spacing: 0.5px;
+  }
+  .section-title p{
+    color: var(--tac-muted);
+    margin-top:10px;
+    max-width:600px;
+    margin-left:auto; margin-right:auto;
+  }
+
+  /* About */
+  .about-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .about-card{
+    background: var(--tac-grey);
+    border-radius: 10px;
+    padding: 32px 26px;
+    border-top: 4px solid var(--tac-blue);
+  }
+  .about-card h3{color:var(--tac-blue-dark); font-size:18px; margin-bottom:10px;}
+  .about-card p{color:var(--tac-muted); font-size:14px;}
+
+  .stats{
+    display:flex; justify-content:center; gap:70px; margin-top:56px; flex-wrap:wrap;
+  }
+  .stat{text-align:center;}
+  .stat strong{display:block; font-size:36px; color:var(--tac-blue); font-weight:800;}
+  .stat span{color:var(--tac-muted); font-size:13px; letter-spacing:0.5px; text-transform:uppercase;}
+
+  /* Brands */
+  .brands{background:var(--tac-grey);}
+  .brand-grid{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+  }
+  .brand-tile{
+    background:var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    display:flex; align-items:center; justify-content:center;
+    height: 100px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform .15s ease;
+  }
+  .brand-tile:hover{transform: translateY(-4px);}
+  .brand-tile img{max-height:56px; object-fit:contain;}
+
+  /* Network */
+  .network-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    text-align:center;
+  }
+  .network-card{
+    padding: 28px 16px;
+    border: 1px solid #e6e9f0;
+    border-radius: 10px;
+  }
+  .network-card strong{display:block; font-size:26px; color:var(--tac-blue); margin-bottom:6px;}
+  .network-card span{color:var(--tac-muted); font-size:13px; letter-spacing:0.5px;}
+
+  /* News */
+  .news-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .news-card{
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+  .news-card img{height:180px; width:100%; object-fit:cover;}
+  .news-body{padding: 18px 20px;}
+  .news-date{color:var(--tac-blue); font-size:12px; font-weight:700; letter-spacing:0.5px;}
+  .news-body h4{margin: 8px 0 10px; font-size:16px; color:var(--tac-text);}
+  .news-body p{font-size:13px; color:var(--tac-muted); margin-bottom:12px;}
+  .news-link{color:var(--tac-blue); font-weight:700; font-size:13px;}
+
+  /* Contact / Lead form */
+  .contact{
+    background: var(--tac-blue-dark);
+    color:var(--white);
+  }
+  .contact .section-title h2{color:var(--white);}
+  .contact .section-title p{color:rgba(255,255,255,0.75);}
+  .contact-wrap{
+    background: var(--white);
+    color: var(--tac-text);
+    border-radius: 14px;
+    padding: 20px;
+    max-width: 720px;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  }
+
+  /* Footer */
+  footer{
+    background: #0a1330;
+    color: rgba(255,255,255,0.8);
+    padding: 56px 24px 24px;
+  }
+  .footer-grid{
+    max-width:1400px; margin:0 auto;
+    display:grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+    gap: 32px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .footer-grid h4{color:var(--white); font-size:14px; margin-bottom:16px; letter-spacing:0.5px;}
+  .footer-grid li{margin-bottom:10px; font-size:13px;}
+  .footer-grid li a:hover{color:var(--white);}
+  .footer-logo{font-weight:800; font-size:20px; color:var(--white); margin-bottom:14px;}
+  .footer-bottom{
+    max-width:1400px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:20px; font-size:12px; flex-wrap:wrap; gap:12px;
+  }
+
+  @media (max-width: 1000px){
+    .about-grid{grid-template-columns: 1fr;}
+    .brand-grid{grid-template-columns: repeat(3, 1fr);}
+    .network-grid{grid-template-columns: repeat(2, 1fr);}
+    .news-grid{grid-template-columns: 1fr;}
+    .footer-grid{grid-template-columns: 1fr 1fr;}
+    nav{display:none;}
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- ============================================================
-     HEADER
-     ============================================================ -->
-    <header class="site-header">
-        <nav class="nav">
-            <a href="#top" class="nav-logo" aria-label="Petrotek home">
-                <img src="images/petrotek-logo.png" alt="Petrotek"
-                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'PETROTEK'}))">
-                <span class="logo-tag">General Trading LLC</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <span class="nav-phone">+971 2 XXX XXXX</span>
-                <a href="#contact" class="btn btn-primary">Request a Quote</a>
-                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
-                    aria-controls="mobileMenu">
-                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-                        <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.6" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#industries">Industries</a>
-        <a href="#why">Why Us</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+<header>
+  <div class="topbar">
+    <div class="contact-info">
+      <span>✉ crm@towellauto.com</span>
+      <span>📍 Muscat, Oman</span>
     </div>
+    <div class="contact-info">
+      <span>📞 +968 24229100</span>
+    </div>
+  </div>
+  <div class="navwrap">
+    <a href="#" class="logo">TOWELL AUTO CENTRE</a>
+    <nav>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#brands">BRANDS</a>
+          <div class="submenu">
+            <a href="#brands">Mazda</a>
+            <a href="#brands">JAC</a>
+            <a href="#brands">212</a>
+            <a href="#brands">Value Cars</a>
+            <a href="#brands">Lucas</a>
+            <a href="#brands">King Long</a>
+            <a href="#brands">Bridgestone</a>
+            <a href="#brands">TotalEnergies</a>
+            <a href="#brands">Hofmann</a>
+            <a href="#brands">Bandag</a>
+          </div>
+        </li>
+        <li><a href="#network">AFTER SALES</a></li>
+        <li><a href="#news">NEWS &amp; EVENTS</a></li>
+        <li><a href="#">CAREERS</a></li>
+        <li><a href="#">OFFERS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <main id="top">
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Oman's Trusted Name in Automotive Since 1972</h1>
+    <p>Vehicles, parts, service, tyres and lubricants — Towell Auto Centre keeps you moving with genuine quality and nationwide support.</p>
+    <a href="#contact" class="hero-cta">Get In Touch</a>
+    <div class="hero-tags">
+      <span>AUTOMOTIVE</span>
+      <span>LUBES</span>
+      <span>TYRES</span>
+      <span>BATTERIES</span>
+    </div>
+  </div>
+</section>
 
-        <!-- ============================================================
-     HERO
-     ============================================================ -->
-        <section class="hero">
-            <div class="hero-grid-bg" aria-hidden="true"></div>
-            <div class="container hero-inner">
-                <div class="hero-copy">
-                    <div class="eyebrow">Industrial Lubricants &middot; UAE &amp; GCC &middot; Since 2007</div>
-                    <h1>Lubrication engineered to <span>outlast</span> the job.</h1>
-                    <p class="lede">Petrotek supplies engine oils, hydraulic fluids, gear lubricants and NSF-certified
-                        food-grade greases to the automotive, marine, construction, manufacturing and agricultural
-                        sectors — with door-to-door delivery across the UAE and wider GCC.</p>
-                    <div class="hero-actions">
-                        <a href="#products" class="btn btn-primary">Explore Products <svg class="btn-arrow" width="14"
-                                height="10" viewBox="0 0 14 10" fill="none">
-                                <path d="M1 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" />
-                            </svg></a>
-                        <a href="#contact" class="btn btn-ghost">Request a Quote</a>
-                    </div>
-                    <div class="hero-meta">
-                        <div>
-                            <div class="num">18+</div>
-                            <div class="lab">Years in Operation</div>
-                        </div>
-                        <div>
-                            <div class="num">6</div>
-                            <div class="lab">GCC Countries Served</div>
-                        </div>
-                        <div>
-                            <div class="num">20+</div>
-                            <div class="lab">Product Categories</div>
-                        </div>
-                        <div>
-                            <div class="num">NSF</div>
-                            <div class="lab">&amp; ISO Certified Lines</div>
-                        </div>
-                    </div>
-                </div>
+<section id="about">
+  <div class="section-inner">
+    <div class="section-title">
+      <h2>Welcome to Towell Auto Centre LLC</h2>
+      <p>Serving Oman's automotive needs for over five decades with a full range of vehicles, parts and after-sales support.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>WHO WE ARE</h3>
+        <p>A leading automotive group in Oman, representing world-class brands across passenger cars, commercial vehicles and industrial equipment.</p>
+      </div>
+      <div class="about-card">
+        <h3>MISSION</h3>
+        <p>To deliver exceptional value and service to every customer, backed by genuine parts and expert technical support.</p>
+      </div>
+      <div class="about-card">
+        <h3>VISION</h3>
+        <p>To be Oman's most trusted automotive partner, driving innovation and quality across every brand we represent.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>10+</strong><span>Brands</span></div>
+      <div class="stat"><strong>6+</strong><span>Categories</span></div>
+      <div class="stat"><strong>500+</strong><span>Employees</span></div>
+    </div>
+  </div>
+</section>
 
-                <div class="gauge-wrap">
-                    <div class="gauge-card" role="img"
-                        aria-label="Illustrative viscosity gauge showing product performance readout">
-                        <div class="gc-label"><span>Viscosity Index</span><b>&#9679; In Spec</b></div>
-                        <svg class="gauge-svg" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M30 150 A120 120 0 0 1 270 150" stroke="#E1DDD1" stroke-width="14" fill="none"
-                                stroke-linecap="round" />
-                            <path d="M30 150 A120 120 0 0 1 150 30" stroke="#D2321F" stroke-width="14" fill="none"
-                                stroke-linecap="round" />
-                            <path d="M150 30 A120 120 0 0 1 220 55" stroke="#A9701C" stroke-width="14" fill="none"
-                                stroke-linecap="round" />
-                            <path d="M220 55 A120 120 0 0 1 270 150" stroke="#3F8A52" stroke-width="14" fill="none"
-                                stroke-linecap="round" />
-                            <g class="gauge-needle">
-                                <line x1="150" y1="150" x2="150" y2="45" stroke="#1B1E22" stroke-width="3" />
-                                <circle cx="150" cy="150" r="8" fill="#1B1E22" />
-                            </g>
-                            <text x="150" y="145" text-anchor="middle" fill="#767C82" font-family="IBM Plex Mono"
-                                font-size="10">ISO VG</text>
-                        </svg>
-                        <div class="gauge-readout">
-                            <span class="val">220</span>
-                            <span class="unit">cSt &middot; 40&deg;C</span>
-                        </div>
-                        <div class="gauge-tags">
-                            <span>Drop Point 250&deg;C</span>
-                            <span>&lt;5% Washout</span>
-                            <span>NLGI #2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="brands" class="brands">
+  <div class="section-inner">
+    <div class="section-title">
+      <h2>Brands</h2>
+      <p>Trusted global names, available through our network across Oman.</p>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Mazda.png" alt="Mazda"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Jac-Motors.png" alt="JAC"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2026/05/212-Logo-215x215-1.png" alt="212"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/King-Long.png" alt="King Long"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2025/05/Bridgestone.png" alt="Bridgestone"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2025/05/bandag.png" alt="Bandag"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Hafmann.png" alt="Hofmann"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Total.png" alt="TotalEnergies"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Value-Cars-Logo.png" alt="Value Cars"></div>
+      <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Lucas.png" alt="Lucas"></div>
+    </div>
+  </div>
+</section>
 
-        <!-- TRUST STRIP -->
-        <div class="trust-strip">
-            <div class="container">
-                <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M8 1l2.2 4.6L15 6.3l-3.5 3.3.8 4.9L8 12.2 3.7 14.5l.8-4.9L1 6.3l4.8-.7L8 1z"
-                            stroke="#A9701C" stroke-width="1.1" fill="none" />
-                    </svg> NSF Certified Lines</span>
-                <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <circle cx="8" cy="8" r="6.5" stroke="#A9701C" stroke-width="1.1" />
-                        <path d="M5 8l2 2 4-4" stroke="#A9701C" stroke-width="1.1" fill="none" />
-                    </svg> ISO 21469 Compliant</span>
-                <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M8 1v14M1 8h14" stroke="#A9701C" stroke-width="1.1" />
-                    </svg> FDA-Aligned Formulations</span>
-                <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M2 9l3 3 9-9" stroke="#A9701C" stroke-width="1.1" fill="none" />
-                    </svg> GCC-Wide Door-to-Door Delivery</span>
-                <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke="#A9701C" stroke-width="1.1" />
-                    </svg> Est. 2007 &middot; Abu Dhabi</span>
-            </div>
+<section id="network">
+  <div class="section-inner">
+    <div class="section-title">
+      <h2>Our Network Across Oman</h2>
+      <p>Always nearby, so we can support you at every stage of ownership.</p>
+    </div>
+    <div class="network-grid">
+      <div class="network-card"><strong>8</strong><span>SHOWROOMS</span></div>
+      <div class="network-card"><strong>9</strong><span>SERVICE CENTRES</span></div>
+      <div class="network-card"><strong>9</strong><span>PARTS CENTRES</span></div>
+      <div class="network-card"><strong>25</strong><span>TYRE LOCATIONS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="brands">
+  <div class="section-inner">
+    <div class="section-title">
+      <h2>News &amp; Events</h2>
+      <p>Stay connected with the latest updates from Towell Auto Centre.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <img src="https://towellauto.com/en/wp-content/uploads/2025/12/1.jpg" alt="News">
+        <div class="news-body">
+          <div class="news-date">24 NOV 2025</div>
+          <h4>Zero-Interest Car Financing with Sohar International Bank</h4>
+          <p>Towell Auto Centre and Sohar International Bank announce a strategic collaboration.</p>
+          <a href="#" class="news-link">LEARN MORE →</a>
         </div>
-
-        <!-- ============================================================
-     ABOUT
-     ============================================================ -->
-        <section class="about" id="about">
-            <div class="container about-grid">
-                <div class="reveal">
-                    <div class="eyebrow">About Petrotek</div>
-                    <h2 style="font-size:clamp(26px,3.4vw,36px); text-transform:uppercase; line-height:1.2;">Engineering
-                        supplies and lubrication solutions, built for the Gulf's working machines.</h2>
-                    <div class="about-copy" style="margin-top:22px;">
-                        <p>Petrotek General Trading LLC has supplied industrial lubricants, greases and engineering
-                            equipment across the UAE since 2007. What started as a lubricants distributor has grown into
-                            a full-line supplier of oils, greases, compressors, lubrication equipment, chains and
-                            sprockets — stocked and shipped door-to-door across the GCC.</p>
-                        <p>Our showroom in Mussafah M17, Abu Dhabi, stocks everything from food-grade lubricants and
-                            vacuum pumps to flow meters and precision measuring tools — backed by a technical team that
-                            helps operations teams match the right product to the right machine, not just the cheapest
-                            one on the shelf.</p>
-                    </div>
-                    <a href="#contact" class="btn btn-ghost" style="margin-top:28px;">Talk to Our Technical Team</a>
-                </div>
-                <div class="about-facts reveal">
-                    <div class="fact">
-                        <div class="n">2007</div>
-                        <div class="l">Founded &amp; operating out of Abu Dhabi</div>
-                    </div>
-                    <div class="fact">
-                        <div class="n">GCC</div>
-                        <div class="l">UAE, Oman, Qatar, Bahrain, Kuwait, Saudi Arabia</div>
-                    </div>
-                    <div class="fact">
-                        <div class="n">5+</div>
-                        <div class="l">Sectors served: automotive to agriculture</div>
-                    </div>
-                    <div class="fact">
-                        <div class="n">M17</div>
-                        <div class="l">Engineering showroom, Mussafah, Abu Dhabi</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-     PRODUCTS
-     ============================================================ -->
-        <section class="products" id="products">
-            <div class="container">
-                <div class="section-head reveal">
-                    <div class="eyebrow">Product Range</div>
-                    <h2>What we stock &amp; supply</h2>
-                    <p>From daily-duty engine oils to specialty synthetic greases — every line is stocked ex-warehouse
-                        for fast dispatch across the UAE and GCC.</p>
-                </div>
-
-                <div class="product-grid reveal">
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <path d="M16 6h12v6l4 4v20a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V16l4-4V6z" stroke="currentColor"
-                                stroke-width="1.6" />
-                            <path d="M12 24h20" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Engine &amp; Racing Oils</h3>
-                        <p>Light-duty and high-performance engine oils formulated for automotive, marine and racing
-                            applications.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <path d="M14 8v10a6 6 0 0 0 6 6h0a6 6 0 0 0 6-6V8" stroke="currentColor"
-                                stroke-width="1.6" />
-                            <path d="M20 24v12M14 36h12" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Hydraulic Oils</h3>
-                        <p>Formulated for smooth operation and long-term protection of hydraulic systems in heavy
-                            machinery.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <circle cx="22" cy="22" r="6" stroke="currentColor" stroke-width="1.6" />
-                            <path
-                                d="M22 8v4M22 34v4M36 22h-4M12 22H8M31.5 12.5l-2.8 2.8M15.3 28.7l-2.8 2.8M31.5 31.5l-2.8-2.8M15.3 15.3l-2.8-2.8"
-                                stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Industrial &amp; Open Gear Greases</h3>
-                        <p>High-temperature, water-resistant and open-gear greases for bearings, chains and heavy-duty
-                            gearing.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <rect x="10" y="10" width="24" height="24" rx="3" stroke="currentColor"
-                                stroke-width="1.6" />
-                            <path d="M10 18h24M18 10v24" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Food-Grade Lubricants</h3>
-                        <p>NSF-certified, non-toxic formulations built for food processing lines and incidental-contact
-                            equipment.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <path d="M8 30l8-16 8 8 8-14 4 6" stroke="currentColor" stroke-width="1.6" fill="none" />
-                            <path d="M8 34h28" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Metal Working &amp; Cutting Fluids</h3>
-                        <p>Cutting oils and coolants for CNC and metalworking, reducing tool wear and improving surface
-                            finish.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <rect x="9" y="14" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.6" />
-                            <circle cx="15" cy="23" r="2.4" fill="currentColor" />
-                            <path d="M20 23h11" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Compressors &amp; Air Equipment</h3>
-                        <p>Air compressors, dryers, nitrogen and oxygen generators for continuous plant and workshop
-                            operations.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <circle cx="14" cy="22" r="4" stroke="currentColor" stroke-width="1.6" />
-                            <circle cx="30" cy="14" r="4" stroke="currentColor" stroke-width="1.6" />
-                            <circle cx="30" cy="30" r="4" stroke="currentColor" stroke-width="1.6" />
-                            <path d="M17.5 20l9-4.5M17.5 24l9 4.5" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Chains, Sprockets &amp; Couplings</h3>
-                        <p>Transfer and automotive chains, sprockets and couplings for conveyors, workstations and drive
-                            systems.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                    <div class="product-card">
-                        <svg class="pc-icon" viewBox="0 0 44 44" fill="none">
-                            <path d="M10 20a12 12 0 0 1 24 0v6a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4v-6z" stroke="currentColor"
-                                stroke-width="1.6" />
-                            <path d="M10 22h24" stroke="currentColor" stroke-width="1.6" />
-                        </svg>
-                        <h3>Lubrication Equipment</h3>
-                        <p>Grease pumps, drum pumps, oil meters and centralized lubrication systems for fast, clean
-                            application.</p>
-                        <a href="#contact" class="pc-link">Enquire <svg width="12" height="9" viewBox="0 0 12 9"
-                                fill="none">
-                                <path d="M0 4.5h11M7 1l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.4" />
-                            </svg></a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-     INDUSTRIES
-     ============================================================ -->
-        <section class="industries" id="industries">
-            <div class="container">
-                <div class="section-head reveal">
-                    <div class="eyebrow">Industries Served</div>
-                    <h2>Built for real operating conditions</h2>
-                    <p>The same reliability, whether it's a fleet workshop, a food line, or a mine site.</p>
-                </div>
-                <div class="industry-row reveal">
-                    <div class="industry-chip"><span class="dot"></span>Automotive</div>
-                    <div class="industry-chip"><span class="dot"></span>Manufacturing</div>
-                    <div class="industry-chip"><span class="dot"></span>Marine</div>
-                    <div class="industry-chip"><span class="dot"></span>Construction &amp; Infrastructure</div>
-                    <div class="industry-chip"><span class="dot"></span>Agriculture</div>
-                    <div class="industry-chip"><span class="dot"></span>Oil &amp; Gas</div>
-                    <div class="industry-chip"><span class="dot"></span>Mining</div>
-                    <div class="industry-chip"><span class="dot"></span>Food Processing</div>
-                    <div class="industry-chip"><span class="dot"></span>Power Generation</div>
-                    <div class="industry-chip"><span class="dot"></span>Logistics &amp; Transport</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-     WHY US
-     ============================================================ -->
-        <section class="why" id="why">
-            <div class="container">
-                <div class="section-head reveal">
-                    <div class="eyebrow">Why Petrotek</div>
-                    <h2>Four reasons operations teams stay with us</h2>
-                </div>
-                <div class="why-grid reveal">
-                    <div class="why-card">
-                        <div class="idx">01</div>
-                        <h3>Technical Expertise</h3>
-                        <p>Our team recommends products by application and duty cycle, not just by catalogue number —
-                            reducing trial-and-error on the shop floor.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="idx">02</div>
-                        <h3>GCC-Wide Delivery</h3>
-                        <p>Door-to-door dispatch across the UAE and into Oman, Qatar, Bahrain, Kuwait and Saudi Arabia,
-                            coordinated from our Abu Dhabi warehouse.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="idx">03</div>
-                        <h3>Certified Quality</h3>
-                        <p>NSF, ISO 21469 and FDA-aligned formulations where required, with consistent batch quality
-                            across every drum.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="idx">04</div>
-                        <h3>Custom Solutions</h3>
-                        <p>Consultation, cost analysis and process optimization for operations that need more than an
-                            off-the-shelf lubricant.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CERTIFICATIONS STRIP -->
-        <div class="certs">
-            <div class="container">
-                <span class="certs-label">Certifications &amp; Standards</span>
-                <span class="cert-badge"><b>ISO 21469</b>&nbsp;Certified</span>
-                <span class="cert-badge"><b>NSF</b>&nbsp;Registered Lines</span>
-                <span class="cert-badge"><b>FDA</b>&nbsp;Aligned Formulations</span>
-                <span class="cert-badge"><b>ISO VG</b>&nbsp;Graded Products</span>
-            </div>
+      </div>
+      <div class="news-card">
+        <img src="https://towellauto.com/en/wp-content/uploads/2025/02/1920X1080-Blog-min.jpg" alt="News">
+        <div class="news-body">
+          <div class="news-date">13 FEB 2025</div>
+          <h4>Towell Auto Group CEO Honored at CXO Awards 2024</h4>
+          <p>Recognized as "CEO of the Year – Auto" for outstanding industry leadership.</p>
+          <a href="#" class="news-link">LEARN MORE →</a>
         </div>
-
-        <!-- ============================================================
-     TESTIMONIALS
-     ============================================================ -->
-        <section class="testimonials">
-            <div class="container">
-                <div class="section-head reveal">
-                    <div class="eyebrow">Client Feedback</div>
-                    <h2>What operations teams tell us</h2>
-                </div>
-                <div class="t-grid reveal">
-                    <div class="t-card">
-                        <div class="quote-mark">&ldquo;</div>
-                        <p>We switched our cutting oil to Petrotek's recommendation and saw a real drop in tool wear and
-                            heat build-up on our aluminum jobs almost immediately.</p>
-                        <div class="who"><b>Workshop Manager</b>Metalworking &amp; CNC, Abu Dhabi</div>
-                    </div>
-                    <div class="t-card">
-                        <div class="quote-mark">&ldquo;</div>
-                        <p>Their technical team walked us through compressor and oil options instead of just quoting a
-                            price — that guidance is why we keep coming back.</p>
-                        <div class="who"><b>Plant Engineer</b>Manufacturing, Dubai</div>
-                    </div>
-                    <div class="t-card">
-                        <div class="quote-mark">&ldquo;</div>
-                        <p>Delivery coordination has been consistently fast, and their range covers everything from
-                            hydraulic oil to chains and sprockets in one order.</p>
-                        <div class="who"><b>Procurement Lead</b>Construction &amp; Infrastructure, Sharjah</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-     CONTACT + WEB-TO-LEAD FORM
-     ============================================================ -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <div class="section-head reveal">
-                    <div class="eyebrow">Get In Touch</div>
-                    <h2>Request a quote or technical consultation</h2>
-                    <p>Tell us about your equipment and application — our team will follow up with the right product and
-                        pricing for your operation.</p>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
-                        <div class="contact-item">
-                            <svg class="ci-icon" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" stroke="currentColor"
-                                    stroke-width="1.6" />
-                                <circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.6" />
-                            </svg>
-                            <div>
-                                <h4>Showroom &amp; Warehouse</h4>
-                                <p>Mussafah, M17, Abu Dhabi, United Arab Emirates</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="ci-icon" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M4 5h4l2 5-2.5 1.5a12 12 0 0 0 5 5L14 14l5 2v4a2 2 0 0 1-2 2C9.6 22 2 14.4 2 7a2 2 0 0 1 2-2z"
-                                    stroke="currentColor" stroke-width="1.6" />
-                            </svg>
-                            <div>
-                                <h4>Phone</h4>
-                                <a href="tel:+9712XXXXXXX">+971 2 XXX XXXX</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="ci-icon" viewBox="0 0 24 24" fill="none">
-                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"
-                                    stroke-width="1.6" />
-                                <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" />
-                            </svg>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:lubeinfo@petrotek.ae">lubeinfo@petrotek.ae</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="ci-icon" viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
-                                <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" />
-                            </svg>
-                            <div>
-                                <h4>Working Hours</h4>
-                                <p>Sat &ndash; Thu, 8:00 AM &ndash; 6:00 PM (GST)</p>
-                            </div>
-                        </div>
-                        <div class="map-box">
-                            <iframe title="Petrotek location map" loading="lazy"
-                                src="https://www.google.com/maps?q=Mussafah%20Abu%20Dhabi&output=embed"></iframe>
-                        </div>
-                    </div>
-
-                    <div class="form-panel reveal">
-                        <div class="form-panel-inner">
-                            <div class="fp-eyebrow">Web-to-Lead</div>
-                            <div class="fp-title">Request a Quote</div>
-                            <p class="fp-sub">Fields marked with an asterisk are required. We typically respond within
-                                one business day.</p>
-                        </div>
-
-                        <!-- ==================== ZOHO WEB-TO-LEAD FORM (functional block, do not remove required attributes) ==================== -->
-                        <div id='crmWebToEntityForm' class='zcwf_lblLeft crmWebToEntityForm'
-                            style='background-color: white;color: black;max-width: 600px;'>
-                            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                            <META HTTP-EQUIV='content-type' CONTENT='text/html;charset=UTF-8'>
-                            <form id='webform1352143000000577001' action='https://crm.zoho.in/crm/WebToLeadForm'
-                                name=WebToLeads1352143000000577001 method='POST'
-                                onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1352143000000577001()'
-                                accept-charset='UTF-8'>
-                                <input type='text' style='display:none;' name='xnQsjsdp'
-                                    value='e31760fedf49b1e671d150e5a134d2dec9f53a658917a9166a63dd56192fd6e2'>
-                                </input>
-                                <input type='hidden' name='zc_gad' id='zc_gad' value=''>
-                                </input>
-                                <input type='text' style='display:none;' name='xmIwtLD'
-                                    value='167fd0192334edad1409d5ec9ee2aa5b7c90c15ef59184b929420c1cb1ca18188e566b5e6448fd425b3c0f71d3b170a6'>
-                                </input>
-                                <input type='text' style='display:none;' name='actionType' value='TGVhZHM='>
-                                </input>
-                                <input type='text' style='display:none;' name='returnURL' value='null'>
-                                </input>
-                                <!-- Do not remove this code. -->
-                                <div class='zcwf_title' style='max-width: 600px;color: black; font-family:Arial;'>Lead
-                                    Capture</div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='First_Name'>First Name</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='First_Name' aria-required='false' aria-label='First Name'
-                                            name='First Name' aria-valuemax='40' maxlength='40'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Last_Name'>Last Name
-                                            <span style='color:red;'>*</span>
-                                        </label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Last_Name' aria-required='true' aria-label='Last Name'
-                                            name='Last Name' aria-valuemax='80' maxlength='80'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Company'>Company
-                                            <span style='color:red;'>*</span>
-                                        </label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Company' aria-required='true' aria-label='Company'
-                                            name='Company' aria-valuemax='200' maxlength='200'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Email'>Email</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' ftype='email' autocomplete='false' id='Email'
-                                            aria-required='false' aria-label='Email' name='Email' aria-valuemax='100'
-                                            crmlabel='' maxlength='100'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Phone'>Phone</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Phone' aria-required='false' aria-label='Phone'
-                                            name='Phone' aria-valuemax='30' maxlength='30'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Industry'>Industry</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <select class='zcwf_col_fld_slt' role='combobox' aria-expanded='false'
-                                            aria-haspopup='listbox' id='Industry'
-                                            onChange='addAriaSelected1352143000000577001()' aria-required='false'
-                                            aria-label='Industry' name='Industry'>
-                                            <option value='-None-'>-None-</option>
-                                            <option value='Government/Military'>Government/Military</option>
-                                            <option value='Large Enterprise'>Large Enterprise</option>
-                                            <option value='ManagementISV'>ManagementISV</option>
-                                            <option value='MSP (Management Service Provider)'>MSP (Management Service
-                                                Provider)</option>
-                                            <option value='Non-management ISV'>Non-management ISV</option>
-                                            <option value='Service Provider'>Service Provider</option>
-                                            <option value='Small/Medium Enterprise'>Small/Medium Enterprise</option>
-                                            <option value='Storage Service Provider'>Storage Service Provider</option>
-                                            <option value='Systems Integrator'>Systems Integrator</option>
-                                            <option value='ERP'>ERP</option>
-                                            <option value='Management ISV'>Management ISV</option>
-                                            <option value='Logistics and transportation'>Logistics and transportation
-                                            </option>
-                                            <option value='Construction and infrastructure'>Construction and
-                                                infrastructure</option>
-                                            <option value='Manufacturing'>Manufacturing</option>
-                                            <option value='Mining'>Mining</option>
-                                            <option value='Power generation'>Power generation</option>
-                                            <option value='Textile mills'>Textile mills</option>
-                                            <option value='Cement plants'>Cement plants</option>
-                                            <option value='Chemical industries'>Chemical industries</option>
-                                            <option value='Hospitals (generator fuel)'>Hospitals (generator fuel)
-                                            </option>
-                                            <option value='Generator rental companies'>Generator rental companies
-                                            </option>
-                                        </select>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Address_-_Country_/_Region'>Address - Country / Region</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <select class='zcwf_col_fld_slt' role='combobox' aria-expanded='false'
-                                            aria-haspopup='listbox' id='Address_-_Country_/_Region'
-                                            onChange='addAriaSelected1352143000000577001()' aria-required='false'
-                                            aria-label='Address - Country / Region' name='Address - Country / Region'>
-                                            <option selected value='-None-'>-None-</option>
-                                        </select>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Address_-_City'>Address - City</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Address_-_City' aria-required='false'
-                                            aria-label='Address - City' name='Address - City' aria-valuemax='255'
-                                            maxlength='255'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Address_-_Zip_/_Postal_Code'>Address - Zip / Postal Code</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='text' id='Address_-_Zip_/_Postal_Code' aria-required='false'
-                                            aria-label='Address - Zip / Postal Code' name='Address - Zip / Postal Code'
-                                            aria-valuemax='255' maxlength='255'>
-                                        </input>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-                                        <label for='Description'>Description</label>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <textarea style='font-family: Arial, sans-serif;' aria-multiline='true'
-                                            id='Description' aria-required='false' aria-label='Description'
-                                            name='Description'></textarea>
-                                        <div class='zcwf_col_help'>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type='text' type='hidden' style='display: none;' name='aG9uZXlwb3Q' value='' />
-                                <div class='zcwf_row'>
-                                    <div class='zcwf_col_lab'>
-                                    </div>
-                                    <div class='zcwf_col_fld'>
-                                        <input type='submit' id='formsubmit' role='button'
-                                            class='formsubmit zcwf_button' value='Submit' aria-label='Submit'
-                                            title='Submit'>
-                                        <input type='reset' class='zcwf_button' role='button' name='reset' value='Reset'
-                                            aria-label='Reset' title='Reset'>
-                                    </div>
-                                </div>
-                                <script>
-                                    function addAriaSelected1352143000000577001() {
-                                        var optionElem = event.target;
-                                        var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
-                                        if (previousSelectedOption) {
-                                            previousSelectedOption.removeAttribute('aria-selected');
-                                        }
-                                        optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected = 'true';
-                                    }
-                                    function validateEmail1352143000000577001() {
-                                        var form = document.forms['WebToLeads1352143000000577001'];
-                                        var emailFld = form.querySelectorAll('[ftype=email]');
-                                        var i;
-                                        for (i = 0; i < emailFld.length; i++) {
-                                            var emailVal = emailFld[i].value;
-                                            if ((emailVal.replace(/^\s+|\s+$/g, '')).length != 0) {
-                                                var atpos = emailVal.indexOf('@');
-                                                var dotpos = emailVal.lastIndexOf('.');
-                                                if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
-                                                    alert('Please enter a valid email address. ');
-                                                    emailFld[i].focus();
-                                                    return false;
-                                                }
-                                            }
-                                        }
-                                        return true;
-                                    }
-                                    function checkMandatory1352143000000577001(isAjax) {
-                                        var mndFileds = new Array('Company', 'Last Name');
-                                        var fldLangVal = new Array('Company', 'Last Name');
-                                        for (i = 0; i < mndFileds.length; i++) {
-                                            var fieldObj = document.forms['WebToLeads1352143000000577001'][mndFileds[i]];
-                                            if (fieldObj) {
-                                                if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
-                                                    if (fieldObj.type == 'file') {
-                                                        alert('Please select a file to upload.');
-                                                        fieldObj.focus();
-                                                        return false;
-                                                    }
-                                                    alert(fldLangVal[i] + ' cannot be empty.');
-                                                    fieldObj.focus();
-                                                    return false;
-                                                } else if (fieldObj.nodeName == 'SELECT') {
-                                                    if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
-                                                        alert(fldLangVal[i] + ' cannot be none.');
-                                                        fieldObj.focus();
-                                                        return false;
-                                                    }
-                                                } else if (fieldObj.type == 'checkbox') {
-                                                    if (fieldObj.checked == false) {
-                                                        alert('Please accept  ' + fldLangVal[i]);
-                                                        fieldObj.focus();
-                                                        return false;
-                                                    }
-                                                }
-                                                try {
-                                                    if (fieldObj.name == 'Last Name') {
-                                                        name = fieldObj.value;
-                                                    }
-                                                } catch (e) { }
-                                            }
-                                        }
-                                        if (!validateEmail1352143000000577001()) {
-                                            return false;
-                                        }
-                                        var urlparams = new URLSearchParams(window.location.search);
-                                        if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
-                                            var webform = document.getElementById('webform1352143000000577001');
-                                            var service = urlparams.get('service');
-                                            var smarturlfield = document.createElement('input');
-                                            smarturlfield.setAttribute('type', 'hidden');
-                                            smarturlfield.setAttribute('value', service);
-                                            smarturlfield.setAttribute('name', 'service');
-                                            webform.appendChild(smarturlfield);
-                                        }
-                                        document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
-                                    }
-                                    function tooltipShow1352143000000577001(el) {
-                                        var tooltip = el.nextElementSibling;
-                                        var tooltipDisplay = tooltip.style.display;
-                                        if (tooltipDisplay == 'none') {
-                                            var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
-                                            for (i = 0; i < allTooltip.length; i++) {
-                                                allTooltip[i].style.display = 'none';
-                                            }
-                                            tooltip.style.display = 'block';
-                                        } else {
-                                            tooltip.style.display = 'none';
-                                        }
-                                    }
-                                </script>
-                                <script id='webformDependencyScript1352143000000577001'
-                                    src='https://crm.zohopublic.in/crm/WebFormDependencies?rid=ccd21fa4b30883e14c641e13417e4d80502c79ca74d2ca5e233b113bd7b4fe1e'>
-                                    </script>
-                                <!-- Do not remove this --- Analytics Tracking code starts -->
-                                <script id='wf_anal'
-                                    src='https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=ec28388880ea62f461589a40a077becfd654b0b2b02e2594c07c0df2eff096b6e610771240f74eb1a5d003f902d2245bgid918f5df6df9719a8ec2463ca82681bd2e261069331f629d20f26cee4626c2da4gidbe20693f224aa2fa1897ff72e7e46140636a33f1cb3e626858af969bb5cbcce8gid8d9dad4acf2547c363bad0ea34bc08b3d8633e83148791ccebb22e6e62565855&tw=14377558e162118d0113935b59c8cae77d8dd39ff81d9ff30c9f55a43cac7e62'>
-                                    </script>
-                                <!-- Do not remove this --- Analytics Tracking code ends. -->
-                            </form>
-                        </div>
-                        <!-- ==================== END ZOHO WEB-TO-LEAD FORM ==================== -->
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ============================================================
-     FOOTER
-     ============================================================ -->
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="images/petrotek-logo.png" alt="Petrotek"
-                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'PETROTEK'}))">
-                <p>Petrotek General Trading LLC &mdash; industrial lubricants, oils, greases and engineering supplies
-                    for the UAE and GCC since 2007.</p>
-            </div>
-            <div class="footer-col">
-                <h5>Company</h5>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#why">Why Petrotek</a></li>
-                    <li><a href="#industries">Industries</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Products</h5>
-                <ul>
-                    <li><a href="#products">Engine &amp; Racing Oils</a></li>
-                    <li><a href="#products">Hydraulic Oils</a></li>
-                    <li><a href="#products">Industrial Greases</a></li>
-                    <li><a href="#products">Food-Grade Lubricants</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Contact</h5>
-                <ul>
-                    <li>Mussafah, M17, Abu Dhabi, UAE</li>
-                    <li><a href="tel:+9712XXXXXXX">+971 2 XXX XXXX</a></li>
-                    <li><a href="mailto:lubeinfo@petrotek.ae">lubeinfo@petrotek.ae</a></li>
-                </ul>
-            </div>
+      </div>
+      <div class="news-card">
+        <img src="https://towellauto.com/en/wp-content/uploads/2025/02/mazda-cx-90-earns-two-prestigious-awards-as-premium-family-suv-of-the-year.jpg" alt="News">
+        <div class="news-body">
+          <div class="news-date">13 FEB 2025</div>
+          <h4>Mazda CX-90 Named Premium Family SUV of the Year</h4>
+          <p>The Mazda CX-90 secures two prestigious accolades for design and performance.</p>
+          <a href="#" class="news-link">LEARN MORE →</a>
         </div>
-        <div class="container footer-bottom">
-            <span>&copy; <span id="year"></span> Petrotek General Trading LLC. All rights reserved.</span>
-            <span>Built for industrial performance, not just industrial looks.</span>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <button class="to-top" id="toTop" aria-label="Back to top">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 13V3M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.6" />
-        </svg>
-    </button>
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <div class="section-title">
+      <h2>Get In Touch</h2>
+      <p>Have a question about our vehicles, parts or services? Send us your details and our team will be in touch.</p>
+    </div>
+    <div class="contact-wrap">
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+<!-- ===== Zoho Web-to-Lead Form (unmodified logic) ===== -->
+<div id = 'crmWebToEntityForm' class = 'zcwf_lblLeft crmWebToEntityForm' style = 'background-color: white;color: black;max-width: 600px;'>
+	<meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+		<META HTTP-EQUIV = 'content-type' CONTENT = 'text/html;charset=UTF-8'>
+			<form id = 'webform7516066000000694302' action = 'https://crm.zoho.com/crm/WebToLeadForm' name = WebToLeads7516066000000694302 method = 'POST' onSubmit = 'javascript:document.charset="UTF-8"; return checkMandatory7516066000000694302()' accept-charset = 'UTF-8'>
+				<input type = 'text' style = 'display:none;' name = 'xnQsjsdp' value = 'db256d3292d9c009b3982487d6a568f11d38a6bc9031e4b8d842f5e1eb76397d'>
+				</input>
+				<input type = 'hidden' name = 'zc_gad' id = 'zc_gad' value = ''>
+				</input>
+				<input type = 'text' style = 'display:none;' name = 'xmIwtLD' value = 'bbaf1b908d968a3435a9636ec1131f90642e709578024b08d8dae21a6058b96bde4f2d7ea7a68a50be411ad195e5dc2b'>
+				</input>
+				<input type = 'text' style = 'display:none;' name = 'actionType' value = 'TGVhZHM='>
+				</input>
+				<input type = 'text' style = 'display:none;' name = 'returnURL' value = 'null'>
+				</input>
+				<!-- Do not remove this code. -->
+				<style>
+					html,body{
+						margin: 0px;
+					}
+					.formsubmit.zcwf_button{
+						color: white !important;
+						background: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
+					}
+					#crmWebToEntityForm.zcwf_lblLeft{
+						width: 100%;
+						padding: 25px;
+						margin: 0 auto;
+						box-sizing: border-box;
+					}
+					#crmWebToEntityForm.zcwf_lblLeft *{
+						box-sizing: border-box;
+					}
+					#crmWebToEntityForm{
+						text-align: left;
+					}
+					#crmWebToEntityForm *{
+						direction: ltr;
+					}
+					.zcwf_lblLeft .zcwf_title{
+						word-wrap: break-word;
+						padding: 0px 6px 10px;
+						font-weight: bold }
+					.zcwf_lblLeft.cpT_primaryBtn:hover{
+						background: linear-gradient(#02acff 0,#006be4 100%)no-repeat padding-box !important;
+						box-shadow: 0 -2px 0 0  #0159b9 inset !important;
+						border: 0 !important;
+						color:  #fff !important;
+						outline: 0 !important;
+					}
+					.zcwf_lblLeft .zcwf_col_fld input[ type  = text], input[ type  = password], .zcwf_lblLeft .zcwf_col_fld textarea{
+						width: 60%;
+						border: 1px solid  #c0c6cc !important;
+						resize: vertical;
+						border-radius: 2px;
+						float: left;
+					}
+					.zcwf_lblLeft .zcwf_col_lab{
+						width: 30%;
+						word-break: break-word;
+						padding: 0px 6px 0px;
+						margin-right: 10px;
+						margin-top: 5px;
+						float: left;
+						min-height: 1px;
+					}
+					.zcwf_lblLeft .zcwf_col_fld{
+						float: left;
+						width: 68%;
+						padding: 0px 6px 0px;
+						position: relative;
+						margin-top: 5px;
+					}
+					.zcwf_lblLeft .zcwf_privacy{
+						padding: 6px;
+					}
+					.zcwf_lblLeft .wfrm_fld_dpNn{
+						display: none;
+					}
+					.dIB{
+						display: inline-block;
+					}
+					.zcwf_lblLeft .zcwf_col_fld_slt{
+						width: 60%;
+						border: 1px solid  #ccc;
+						background:  #fff;
+						border-radius: 4px;
+						font-size: 12px;
+						float: left;
+						resize: vertical;
+						padding: 2px 5px;
+					}
+					.zcwf_lblLeft .zcwf_row:after, .zcwf_lblLeft .zcwf_col_fld:after{
+						content: '';
+						display: table;
+						clear: both;
+					}
+					.zcwf_lblLeft .zcwf_col_help{
+						float: left;
+						margin-left: 7px;
+						font-size: 12px;
+						max-width: 35%;
+						word-break: break-word;
+					}
+					.zcwf_lblLeft .zcwf_help_icon{
+						cursor: pointer;
+						width: 16px;
+						height: 16px;
+						display: inline-block;
+						background:  #fff;
+						border: 1px solid  #c0c6cc;
+						color:  #c1c1c1;
+						text-align: center;
+						font-size: 11px;
+						line-height: 16px;
+						font-weight: bold;
+						border-radius: 50%;
+					}
+					.zcwf_lblLeft .zcwf_row{
+						margin: 15px 0px;
+					}
+					.zcwf_lblLeft .formsubmit{
+						margin-right: 5px;
+						cursor: pointer;
+						color:  #313949;
+						font-size: 12px;
+					}
+					.zcwf_lblLeft .zcwf_privacy_txt{
+						width: 90%;
+						color: rgb(0, 0, 0);
+						font-size: 12px;
+						font-family: Arial;
+						display: inline-block;
+						vertical-align: top;
+						color:  #313949;
+						padding-top: 2px;
+						margin-left: 6px;
+					}
+					.zcwf_lblLeft .zcwf_button{
+						font-size: 12px;
+						color:  #313949;
+						border: 1px solid  #c0c6cc;
+						padding: 3px 9px;
+						border-radius: 4px;
+						cursor: pointer;
+						max-width: 120px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+					.zcwf_lblLeft .zcwf_tooltip_over{
+						position: relative;
+					}
+					.zcwf_lblLeft .zcwf_tooltip_ctn{
+						position: absolute;
+						background:  #dedede;
+						padding: 3px 6px;
+						top: 3px;
+						border-radius: 4px;
+						word-break: break-word;
+						min-width: 100px;
+						max-width: 150px;
+						color:  #313949;
+						z-index: 100;
+					}
+					.zcwf_lblLeft .zcwf_ckbox{
+						float: left;
+					}
+					.zcwf_lblLeft .zcwf_file{
+						width: 55%;
+						box-sizing: border-box;
+						float: left;
+					}
+					.cBoth:after{
+						content: '';
+						display: block;
+						clear: both;
+					}
+					@media all and  (max-width: 600px){
+						.zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld{
+							width: auto;
+							float: none !important;
+						}
+						.zcwf_lblLeft .zcwf_col_help{
+							width: 40%;
+						}
+					}
+				</style>
+				<div class = 'zcwf_title' style = 'max-width: 600px;color: black; font-family:Arial;'>Lead Form</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'First_Name'>First Name</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'text' id = 'First_Name' aria-required = 'false' aria-label = 'First Name' name = 'First Name' aria-valuemax = '40' maxlength = '40'>
+						</input>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Last_Name'>Last Name
+							<span style = 'color:red;'>*</span>
+						</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'text' id = 'Last_Name' aria-required = 'true' aria-label = 'Last Name' name = 'Last Name' aria-valuemax = '80' maxlength = '80'>
+						</input>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row wfrm_fld_dpNn'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Lead_Source'>Lead Source</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<select class = 'zcwf_col_fld_slt' role = 'combobox' aria-expanded = 'false' aria-haspopup = 'listbox' id = 'Lead_Source' onChange = 'addAriaSelected7516066000000694302()' aria-required = 'false' aria-label = 'Lead Source' name = 'Lead Source'>
+							<option value = '-None-'>-None-</option>
+							<option value = 'Advertisement'>Advertisement</option>
+							<option value = 'Cold Call'>Cold Call</option>
+							<option value = 'Employee Referral'>Employee Referral</option>
+							<option value = 'External Referral'>External Referral</option>
+							<option value = 'Online Store'>Online Store</option>
+							<option value = 'X (Twitter)'>X (Twitter)</option>
+							<option value = 'Facebook'>Facebook</option>
+							<option value = 'Partner'>Partner</option>
+							<option value = 'Public Relations'>Public Relations</option>
+							<option value = 'Sales Email Alias'>Sales Email Alias</option>
+							<option value = 'Seminar Partner'>Seminar Partner</option>
+							<option value = 'Internal Seminar'>Internal Seminar</option>
+							<option value = 'Trade Show'>Trade Show</option>
+							<option value = 'Web Download'>Web Download</option>
+							<option selected value = 'Web Research'>Web Research</option>
+							<option value = 'Chat'>Chat</option>
+						</select>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Email'>Email</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'false' aria-label = 'Email' name = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+						</input>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Phone'>Phone</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'text' id = 'Phone' aria-required = 'false' aria-label = 'Phone' name = 'Phone' aria-valuemax = '30' maxlength = '30'>
+						</input>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Company'>Company
+							<span style = 'color:red;'>*</span>
+						</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'text' id = 'Company' aria-required = 'true' aria-label = 'Company' name = 'Company' aria-valuemax = '200' maxlength = '200'>
+						</input>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Industry'>Industry</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<select class = 'zcwf_col_fld_slt' role = 'combobox' aria-expanded = 'false' aria-haspopup = 'listbox' id = 'Industry' onChange = 'addAriaSelected7516066000000694302()' aria-required = 'false' aria-label = 'Industry' name = 'Industry'>
+							<option value = '-None-'>-None-</option>
+							<option value = 'ASP (Application Service Provider)'>ASP (Application Service Provider)</option>
+							<option value = 'Data/Telecom OEM'>Data/Telecom OEM</option>
+							<option value = 'ERP (Enterprise Resource Planning)'>ERP (Enterprise Resource Planning)</option>
+							<option value = 'Government/Military'>Government/Military</option>
+							<option value = 'Large Enterprise'>Large Enterprise</option>
+							<option value = 'ManagementISV'>ManagementISV</option>
+							<option value = 'MSP (Management Service Provider)'>MSP (Management Service Provider)</option>
+							<option value = 'Network Equipment Enterprise'>Network Equipment Enterprise</option>
+							<option value = 'Non-management ISV'>Non-management ISV</option>
+							<option value = 'Optical Networking'>Optical Networking</option>
+							<option value = 'Service Provider'>Service Provider</option>
+							<option value = 'Small/Medium Enterprise'>Small/Medium Enterprise</option>
+							<option value = 'Storage Equipment'>Storage Equipment</option>
+							<option value = 'Storage Service Provider'>Storage Service Provider</option>
+							<option value = 'Systems Integrator'>Systems Integrator</option>
+							<option value = 'Wireless Industry'>Wireless Industry</option>
+							<option value = 'ERP'>ERP</option>
+							<option value = 'Management ISV'>Management ISV</option>
+						</select>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
+						<label for = 'Description'>Description</label>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<textarea style = 'font-family: Arial, sans-serif;' aria-multiline = 'true' id = 'Description' aria-required = 'false' aria-label = 'Description' name = 'Description'></textarea>
+						<div class = 'zcwf_col_help'>
+						</div>
+					</div>
+				</div>
+				<input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+				<div class = 'zcwf_row'>
+					<div class = 'zcwf_col_lab'>
+					</div>
+					<div class = 'zcwf_col_fld'>
+						<input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Submit' aria-label = 'Submit' title = 'Submit'>
+							<input type = 'reset' class = 'zcwf_button' role = 'button' name = 'reset' value = 'Reset' aria-label = 'Reset' title = 'Reset'>
+							</div>
+						</div>
+						<script>
+							function addAriaSelected7516066000000694302(){
+								var optionElem = event.target;
+								var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
+								if (previousSelectedOption) {
+									previousSelectedOption.removeAttribute('aria-selected');
+								}
+								optionElem.querySelectorAll('option') [optionElem.selectedIndex] .ariaSelected = 'true';
+							}
+							function validateEmail7516066000000694302(){
+								var form = document.forms['WebToLeads7516066000000694302'];
+								var emailFld = form.querySelectorAll('[ftype=email]');
+								var i;
+								for(i = 0; i < emailFld.length; i++ ) {
+									var emailVal = emailFld[i].value;
+									if ((emailVal.replace (/^\s+|\s+$/g,'') ) .length != 0) {
+										var atpos = emailVal.indexOf('@');
+										var dotpos = emailVal.lastIndexOf('.');
+										if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+											alert('Please enter a valid email address. ');
+											emailFld[i].focus();
+											return false;
+										}
+									}
+								}
+								return true;
+							}
+							function checkMandatory7516066000000694302(isAjax){
+								var mndFileds = new Array('Company', 'Last Name');
+								var fldLangVal = new Array('Company', 'Last Name');
+								for (i = 0; i < mndFileds.length; i++ ) {
+									var fieldObj = document.forms['WebToLeads7516066000000694302'] [mndFileds[i]];
+									if (fieldObj) {
+										if(((fieldObj.value) .replace (/^\s+|\s+$/g,'') ) .length == 0) {
+											if (fieldObj.type == 'file') {
+												alert('Please select a file to upload.');
+												fieldObj.focus();
+												return false;
+											}
+											alert(fldLangVal[i] + ' cannot be empty.');
+											fieldObj.focus();
+											return false;
+										} else if (fieldObj.nodeName == 'SELECT') {
+											if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+												alert(fldLangVal[i] + ' cannot be none.');
+												fieldObj.focus();
+												return false;
+											}
+										} else if (fieldObj.type == 'checkbox') {
+											if (fieldObj.checked == false) {
+												alert('Please accept  ' + fldLangVal[i]);
+												fieldObj.focus();
+												return false;
+											}
+										}
+										try{
+											if (fieldObj.name == 'Last Name') {
+												name = fieldObj.value;
+											}
+										} catch (e){}
+									}
+								}
+								if ( !validateEmail7516066000000694302 () ) {
+									return false;
+								}
+								var urlparams = new URLSearchParams(window.location.search);
+								if (urlparams.has ('service') && (urlparams.get ('service') === 'smarturl') ) {
+									var webform = document.getElementById('webform7516066000000694302');
+									var service = urlparams.get('service');
+									var smarturlfield = document.createElement('input');
+									smarturlfield.setAttribute('type', 'hidden');
+									smarturlfield.setAttribute('value', service);
+									smarturlfield.setAttribute('name', 'service');
+									webform.appendChild(smarturlfield);
+								}
+								document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+							}
+							_wFa_ajax_will_be_replaced = false;
+							if (typeof _wfa_fstprtcken == 'undefined') {
+								_wfa_fstprtcken = {};
+							}
+							_wfa_fstprtcken[7516066000000694302] = true;
+							function tooltipShow7516066000000694302(el){
+								var tooltip = el.nextElementSibling;
+								var tooltipDisplay = tooltip.style.display;
+								if (tooltipDisplay == 'none') {
+									var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+									for (i = 0; i < allTooltip.length; i++ ) {
+										allTooltip[i].style.display = 'none';
+									}
+									tooltip.style.display = 'block';
+								} else {
+									tooltip.style.display = 'none';
+								}
+							}
+						</script>
+						<!-- Do not remove this --- Analytics Tracking code starts -->
+						<script id = 'wf_anal' src = 'https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=e348e66aa38cdf7509614e6879fb624abe34460fac682b3a49a44a33946969749b7225a93a7306b252fd2f5093991507gidff84e1a899dab265c5a3fec375c3dc0330dda394d4898a8ab3bfb7cdf7206e50gid8bd02251b0d2708a6839096a80374dbcd0646b5713046a72ca056afe6bf5deacgid806028fdef59a162894a4e20c1b8f54d6212ccfbaf256839a8fe24f4b24b0e43&tw=186a209ce1748fcf19a6bd6b4531d5f18997de7d52526b93bc18850819d38bbc&version=v2'>
+					</script>
+					<!-- Do not remove this --- Analytics Tracking code ends. -->
+				</form>
+			</div>
+<!-- ===== End Zoho Web-to-Lead Form ===== -->
 
-        // mobile menu toggle
-        var navToggle = document.getElementById('navToggle');
-        var mobileMenu = document.getElementById('mobileMenu');
-        navToggle.addEventListener('click', function () {
-            var isOpen = mobileMenu.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-        mobileMenu.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
-                mobileMenu.classList.remove('open');
-                navToggle.setAttribute('aria-expanded', 'false');
-            });
-        });
+    </div>
+  </div>
+</section>
 
-        // back to top
-        var toTop = document.getElementById('toTop');
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 500) toTop.classList.add('show');
-            else toTop.classList.remove('show');
-        });
-        toTop.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // reveal on scroll
-        var revealEls = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window) {
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in');
-                        io.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
-            revealEls.forEach(function (el) { io.observe(el); });
-        } else {
-            revealEls.forEach(function (el) { el.classList.add('in'); });
-        }
-    </script>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">TOWELL AUTO CENTRE</div>
+      <p style="font-size:13px; max-width:260px;">Oman's trusted automotive group since 1972 — vehicles, parts, service and tyres.</p>
+    </div>
+    <div>
+      <h4>ABOUT</h4>
+      <ul>
+        <li><a href="#about">History</a></li>
+        <li><a href="#about">Mission &amp; Vision</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>AFTER SALES</h4>
+      <ul>
+        <li><a href="#network">Parts</a></li>
+        <li><a href="#network">Service</a></li>
+        <li><a href="#network">Tyre</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>BRAND</h4>
+      <ul>
+        <li><a href="#brands">Mazda</a></li>
+        <li><a href="#brands">JAC</a></li>
+        <li><a href="#brands">212</a></li>
+        <li><a href="#brands">Value Cars</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>OMAN</h4>
+      <ul>
+        <li>+968 24229100</li>
+        <li>tacgen@towellauto.com</li>
+        <li>P.O.Box: 1194 | P.C:130 | Azaiba | Muscat | Sultanate Of Oman</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>©2026 TOWELL AUTO CENTRE L.L.C. — Privacy Policy | VAT</span>
+    <span>Rebuilt landing page with integrated CRM lead capture</span>
+  </div>
+</footer>
 
 </body>
-
 </html>
