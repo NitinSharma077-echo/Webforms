@@ -3,269 +3,363 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Towell Auto Centre</title>
+<title>Towell Auto Centre — Oman's Automotive Group Since 1972</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --tac-blue: #0033A0;
-    --tac-blue-dark: #001f66;
-    --tac-blue-light: #2b5fd9;
-    --tac-grey: #f4f6fa;
-    --tac-text: #1c2333;
-    --tac-muted: #6b7280;
-    --white: #ffffff;
+    --ink: #080C1A;
+    --ink-2: #121A33;
+    --ink-3: #1D2748;
+    --brand: #0033A0;
+    --accent: #2F6BFF;
+    --accent-2: #6C97FF;
+    --paper: #F5F6FB;
+    --surface: #FFFFFF;
+    --text: #10142A;
+    --text-muted: #5B6178;
+    --line: #E3E5F0;
+    --line-dark: rgba(255,255,255,0.14);
+    --display: 'Barlow Condensed', Arial, sans-serif;
+    --body-font: 'Barlow', 'Segoe UI', Arial, sans-serif;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
   body{
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: var(--tac-text);
-    background: var(--white);
-    line-height: 1.5;
+    font-family: var(--body-font);
+    color: var(--text);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size:15.5px;
   }
   a{text-decoration:none; color:inherit;}
   img{max-width:100%; display:block;}
   ul{list-style:none;}
+  h1,h2,h3,h4{font-family: var(--display); line-height:1.05;}
 
-  /* Header */
-  header{
-    position: sticky; top:0; z-index: 100;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  /* ---------- utility ---------- */
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family: var(--display); font-weight:600; font-size:13px;
+    letter-spacing:2.5px; text-transform:uppercase; color:var(--accent);
   }
+  .eyebrow::before{content:''; width:26px; height:2px; background:var(--accent); display:block;}
+  .eyebrow.on-dark{color:var(--accent-2);}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--display); font-weight:700; font-size:16px; letter-spacing:.5px;
+    padding: 13px 28px; border-radius: 4px; cursor:pointer; border:2px solid transparent;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn-primary{background: var(--accent); color:#fff;}
+  .btn-primary:hover{transform: translateY(-3px); box-shadow: 0 14px 28px rgba(47,107,255,0.35);}
+  .btn-ghost{border-color: rgba(255,255,255,0.55); color:#fff;}
+  .btn-ghost:hover{background: rgba(255,255,255,0.12); transform: translateY(-3px);}
+  .btn-dark{background:var(--ink); color:#fff;}
+  .btn-dark:hover{transform: translateY(-3px); box-shadow: 0 14px 28px rgba(8,12,26,0.3);}
+
+  /* ---------- reveal / motion ---------- */
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  section{padding: 100px 32px;}
+  .section-inner{max-width:1360px; margin:0 auto;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{
+    font-size: clamp(32px, 4.2vw, 52px); font-weight:800; letter-spacing:.3px;
+    text-transform:uppercase; margin-top:14px; color:var(--text);
+  }
+  .section-head p{color:var(--text-muted); margin-top:14px; font-size:16px; max-width:520px;}
+  .section-head.on-dark h2{color:#fff;}
+  .section-head.on-dark p{color:rgba(255,255,255,0.68);}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head.center .eyebrow::before{display:none;}
+
+  /* ================= HEADER ================= */
+  header{position: sticky; top:0; z-index: 200; background: var(--surface);}
   .topbar{
-    background: var(--tac-blue-dark);
-    color: var(--white);
-    font-size: 13px;
-    padding: 6px 24px;
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    flex-wrap: wrap;
+    background: var(--ink); color: rgba(255,255,255,0.85); font-size: 12.5px;
+    padding: 7px 32px; display:flex; justify-content: space-between; align-items:center; flex-wrap: wrap; gap:8px;
+    letter-spacing:.2px;
   }
-  .topbar .contact-info{display:flex; gap:20px; flex-wrap:wrap;}
+  .topbar .contact-info{display:flex; gap:22px; flex-wrap:wrap;}
+  .topbar .contact-info span{display:inline-flex; align-items:center; gap:6px;}
   .navwrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding: 14px 24px;
-    max-width: 1400px;
-    margin: 0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px 32px; max-width: 1440px; margin: 0 auto;
+    border-bottom:1px solid var(--line);
+    transition: padding .25s ease;
   }
-  .logo{font-weight:800; font-size:22px; color:var(--tac-blue); letter-spacing:0.5px;}
-  nav ul{display:flex; gap:28px;}
+  header.scrolled .navwrap{padding: 10px 32px; border-bottom-color:transparent; box-shadow:0 8px 24px rgba(8,12,26,0.08);}
+  .logo{font-family:var(--display); font-weight:800; font-size:24px; letter-spacing:0.5px; color:var(--ink); display:flex; flex-direction:column; line-height:1;}
+  .logo span{font-family:var(--body-font); font-weight:600; font-size:10.5px; letter-spacing:3px; color:var(--accent); margin-top:2px;}
+  nav ul{display:flex; gap:8px; align-items:center;}
   nav ul li{position:relative;}
   nav ul li > a{
-    font-weight:600; font-size:14px; letter-spacing:0.3px;
-    color: var(--tac-text);
-    padding: 8px 0;
-    display:block;
+    font-family:var(--display); font-weight:600; font-size:15px; letter-spacing:.6px;
+    color: var(--text); padding: 10px 14px; display:block; position:relative;
   }
-  nav ul li > a:hover{color:var(--tac-blue);}
+  nav ul li > a::after{
+    content:''; position:absolute; left:14px; right:14px; bottom:5px; height:2px;
+    background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .2s ease;
+  }
+  nav ul li > a:hover::after{transform:scaleX(1);}
   nav ul li .submenu{
-    display:none;
-    position:absolute; top:100%; left:0;
-    background:var(--white);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    border-radius: 6px;
-    padding: 8px 0;
-    min-width:180px;
+    display:none; position:absolute; top:100%; left:0;
+    background:var(--surface); box-shadow: 0 16px 32px rgba(8,12,26,0.14);
+    border-radius: 8px; padding: 10px 0; min-width:190px; border:1px solid var(--line);
   }
   nav ul li:hover .submenu{display:block;}
-  nav ul li .submenu a{padding:8px 16px; font-size:13px; font-weight:500;}
-  nav ul li .submenu a:hover{background:var(--tac-grey); color:var(--tac-blue);}
+  nav ul li .submenu a{padding:9px 18px; font-size:13.5px; font-family:var(--body-font); font-weight:500;}
+  nav ul li .submenu a:hover{background:var(--paper); color:var(--accent);}
+  .nav-cta{margin-left:8px;}
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0;
+  }
+  .nav-toggle span{display:block; height:2px; width:100%; background:var(--ink); border-radius:2px; transition: transform .25s ease, opacity .25s ease;}
+  .nav-toggle.open span:nth-child(1){transform: translateY(7px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform: translateY(-7px) rotate(-45deg);}
 
-  /* Hero */
+  /* ================= HERO ================= */
   .hero{
-    position:relative;
-    min-height: 520px;
-    background: linear-gradient(120deg, var(--tac-blue-dark), var(--tac-blue) 60%, var(--tac-blue-light));
-    color: var(--white);
-    display:flex; align-items:center;
-    overflow:hidden;
+    position:relative; min-height: 94vh; display:flex; align-items:center;
+    color: #fff; overflow:hidden; background:var(--ink);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 94%);
   }
-  .hero::after{
-    content:'';
-    position:absolute; inset:0;
-    background: url('https://towellauto.com/en/wp-content/uploads/revslider/slider-1/Automotive-Header.jpg') center/cover;
-    opacity: 0.35;
+  .hero-bg{position:absolute; inset:0; z-index:0;}
+  .hero-bg img{width:100%; height:100%; object-fit:cover; opacity:.55;}
+  .hero-bg::after{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(100deg, var(--ink) 18%, rgba(8,12,26,0.78) 46%, rgba(8,12,26,0.35) 78%);
   }
-  .hero-inner{
-    position:relative; z-index:2;
-    max-width:1400px; margin:0 auto; padding: 60px 24px;
-    width:100%;
-  }
+  .hero-inner{position:relative; z-index:2; max-width:1440px; margin:0 auto; padding: 60px 32px; width:100%;}
+  .hero-inner .eyebrow{color:var(--accent-2); margin-bottom:22px;}
+  .hero-inner .eyebrow::before{background:var(--accent-2);}
   .hero-inner h1{
-    font-size: clamp(32px, 5vw, 56px);
-    font-weight:800;
-    max-width: 620px;
-    line-height:1.15;
-    margin-bottom: 18px;
+    font-size: clamp(44px, 7.5vw, 96px); font-weight:800; text-transform:uppercase;
+    max-width: 880px; letter-spacing:.5px; margin-bottom: 24px;
   }
-  .hero-inner p{
-    font-size:17px; max-width:520px; opacity:0.92; margin-bottom: 28px;
-  }
-  .hero-cta{
-    display:inline-block;
-    background: var(--white);
-    color: var(--tac-blue);
-    font-weight:700;
-    padding: 12px 28px;
-    border-radius: 4px;
-    transition: transform .15s ease;
-  }
-  .hero-cta:hover{transform: translateY(-2px);}
-  .hero-tags{
-    display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;
-  }
+  .hero-inner h1 em{font-style:normal; color:var(--accent-2);}
+  .hero-inner p{font-size:18px; max-width:480px; color:rgba(255,255,255,0.82); margin-bottom: 36px;}
+  .hero-btn-row{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:52px;}
+  .hero-tags{display:flex; gap:12px; flex-wrap:wrap;}
   .hero-tags span{
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.35);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size:13px;
-    font-weight:600;
-    letter-spacing: 0.5px;
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22);
+    padding: 7px 16px 7px 12px; border-radius: 100px; font-size:12.5px; font-weight:600;
+    letter-spacing: 1px; text-transform:uppercase; transition: background .2s ease, transform .2s ease;
+  }
+  .hero-tags span::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--accent-2);}
+  .hero-tags span:hover{background: rgba(255,255,255,0.16); transform: translateY(-2px);}
+
+  .scroll-cue{
+    position:absolute; left:32px; bottom:44px; z-index:2;
+    display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.7);
+    font-family:var(--display); font-size:12px; letter-spacing:3px; text-transform:uppercase;
+  }
+  .scroll-cue .line{width:2px; height:34px; background:rgba(255,255,255,0.3); position:relative; overflow:hidden;}
+  .scroll-cue .line::after{
+    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--accent-2);
+    animation: scrollCue 1.8s ease infinite;
+  }
+  @keyframes scrollCue{ to{ top:100%; } }
+
+  @keyframes heroFadeUp{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+  .hero-inner .eyebrow{animation: heroFadeUp .7s ease both;}
+  .hero-inner h1{animation: heroFadeUp .7s ease .1s both;}
+  .hero-inner p{animation: heroFadeUp .7s ease .2s both;}
+  .hero-inner .hero-btn-row{animation: heroFadeUp .7s ease .3s both;}
+  .hero-inner .hero-tags{animation: heroFadeUp .7s ease .4s both;}
+  @media (prefers-reduced-motion: reduce){
+    .hero-inner *{animation:none !important;}
+    .scroll-cue .line::after{animation:none;}
   }
 
-  section{padding: 70px 24px;}
-  .section-inner{max-width:1400px; margin:0 auto;}
-  .section-title{
-    text-align:center; margin-bottom: 44px;
+  /* ================= MARQUEE ================= */
+  .marquee-section{background:var(--surface); padding: 34px 0; border-bottom:1px solid var(--line);}
+  .marquee-head{max-width:1360px; margin:0 auto 18px; padding:0 32px;}
+  .marquee-head span{font-family:var(--display); font-weight:600; font-size:12px; letter-spacing:2.5px; color:var(--text-muted); text-transform:uppercase;}
+  .marquee-wrap{overflow:hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);}
+  .marquee-track{display:flex; align-items:center; gap:64px; width:max-content; animation: marqueeScroll 30s linear infinite;}
+  .marquee-wrap:hover .marquee-track{animation-play-state:paused;}
+  .marquee-track img{height:32px; width:auto; filter:grayscale(1); opacity:.5; transition:filter .2s ease, opacity .2s ease;}
+  .marquee-track img:hover{filter:grayscale(0); opacity:1;}
+  @keyframes marqueeScroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none;} }
+
+  /* ================= ABOUT ================= */
+  .about-split{display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:start;}
+  .about-copy p{color:var(--text-muted); font-size:16.5px; margin-top:18px; max-width:460px;}
+  .about-copy .btn{margin-top:32px;}
+  .pillars{display:flex; flex-direction:column;}
+  .pillar{display:flex; gap:22px; padding:26px 0; border-top:1px solid var(--line);}
+  .pillar:last-child{border-bottom:1px solid var(--line);}
+  .pillar .num{font-family:var(--display); font-weight:700; font-size:22px; color:var(--accent); min-width:38px;}
+  .pillar h3{font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; color:var(--text);}
+  .pillar p{color:var(--text-muted); font-size:14.5px;}
+
+  /* ================= STATS BAND ================= */
+  .stats-band{background: var(--ink); padding: 76px 32px;}
+  .stats-row{
+    max-width:1200px; margin:0 auto; display:flex; justify-content:center; align-items:center;
+    flex-wrap:wrap;
   }
-  .section-title h2{
-    font-size: clamp(26px, 3.5vw, 38px);
-    font-weight:800;
-    color: var(--tac-blue-dark);
-    letter-spacing: 0.5px;
+  .stat-item{flex:1; min-width:180px; text-align:center; padding: 12px 24px; position:relative;}
+  .stat-item + .stat-item::before{
+    content:''; position:absolute; left:0; top:10%; bottom:10%; width:1px; background:var(--line-dark);
   }
-  .section-title p{
-    color: var(--tac-muted);
-    margin-top:10px;
-    max-width:600px;
-    margin-left:auto; margin-right:auto;
+  .stat-item strong{
+    display:block; font-family:var(--display); font-size: clamp(48px,6vw,72px); font-weight:800;
+    color:#fff; line-height:1;
+  }
+  .stat-item span{
+    display:block; margin-top:12px; color:rgba(255,255,255,0.6); font-size:12.5px;
+    letter-spacing:2px; text-transform:uppercase; font-weight:600;
   }
 
-  /* About */
-  .about-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .about-card{
-    background: var(--tac-grey);
-    border-radius: 10px;
-    padding: 32px 26px;
-    border-top: 4px solid var(--tac-blue);
-  }
-  .about-card h3{color:var(--tac-blue-dark); font-size:18px; margin-bottom:10px;}
-  .about-card p{color:var(--tac-muted); font-size:14px;}
-
-  .stats{
-    display:flex; justify-content:center; gap:70px; margin-top:56px; flex-wrap:wrap;
-  }
-  .stat{text-align:center;}
-  .stat strong{display:block; font-size:36px; color:var(--tac-blue); font-weight:800;}
-  .stat span{color:var(--tac-muted); font-size:13px; letter-spacing:0.5px; text-transform:uppercase;}
-
-  /* Brands */
-  .brands{background:var(--tac-grey);}
-  .brand-grid{
-    display:grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 18px;
-  }
+  /* ================= BRANDS ================= */
+  .brand-grid{display:grid; grid-template-columns: repeat(5, 1fr); gap: 16px;}
   .brand-tile{
-    background:var(--white);
-    border-radius: 10px;
-    padding: 20px;
-    display:flex; align-items:center; justify-content:center;
-    height: 100px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: transform .15s ease;
+    background:var(--surface); border:1px solid var(--line); border-radius: 10px;
+    padding: 26px; display:flex; align-items:center; justify-content:center; height: 108px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .brand-tile:hover{transform: translateY(-4px);}
-  .brand-tile img{max-height:56px; object-fit:contain;}
+  .brand-tile:hover{transform: translateY(-5px); box-shadow: 0 16px 30px rgba(8,12,26,0.1); border-color:transparent;}
+  .brand-tile img{max-height:52px; object-fit:contain; filter:grayscale(1); opacity:.68; transition:filter .2s ease, opacity .2s ease;}
+  .brand-tile:hover img{filter:grayscale(0); opacity:1;}
 
-  /* Network */
-  .network-grid{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    text-align:center;
+  /* ================= NETWORK ================= */
+  .network-band{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .network-row{
+    max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center;
   }
-  .network-card{
-    padding: 28px 16px;
-    border: 1px solid #e6e9f0;
-    border-radius: 10px;
-  }
-  .network-card strong{display:block; font-size:26px; color:var(--tac-blue); margin-bottom:6px;}
-  .network-card span{color:var(--tac-muted); font-size:13px; letter-spacing:0.5px;}
+  .network-item{flex:1; min-width:200px; text-align:center; padding:8px 24px; position:relative;}
+  .network-item + .network-item::before{content:''; position:absolute; left:0; top:14%; bottom:14%; width:1px; background:var(--line);}
+  .network-item strong{display:block; font-family:var(--display); font-weight:800; font-size:44px; color:var(--accent);}
+  .network-item span{display:block; margin-top:8px; font-size:12px; letter-spacing:1.5px; color:var(--text-muted); text-transform:uppercase; font-weight:600;}
 
-  /* News */
-  .news-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
+  /* ================= NEWS ================= */
+  .news-layout{display:grid; grid-template-columns: 1.15fr 1fr; gap:28px;}
+  .news-featured, .news-side-card{
+    position:relative; border-radius: 12px; overflow:hidden; background:var(--surface);
+    border:1px solid var(--line); transition: transform .2s ease, box-shadow .2s ease;
   }
-  .news-card{
-    border-radius: 10px;
-    overflow:hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  .news-featured:hover, .news-side-card:hover{transform: translateY(-6px); box-shadow: 0 20px 40px rgba(8,12,26,0.12);}
+  .news-featured img{height:100%; min-height:420px; width:100%; object-fit:cover; transition:transform .4s ease;}
+  .news-side-card img{height:190px; width:100%; object-fit:cover; transition:transform .4s ease;}
+  .news-featured:hover img, .news-side-card:hover img{transform:scale(1.05);}
+  .news-featured{display:flex; flex-direction:column;}
+  .news-img-wrap{position:relative; overflow:hidden;}
+  .news-date-badge{
+    position:absolute; top:16px; left:16px; background:var(--ink); color:#fff;
+    font-family:var(--display); font-weight:700; font-size:11.5px; letter-spacing:1px;
+    padding:6px 12px; border-radius:100px; text-transform:uppercase;
   }
-  .news-card img{height:180px; width:100%; object-fit:cover;}
-  .news-body{padding: 18px 20px;}
-  .news-date{color:var(--tac-blue); font-size:12px; font-weight:700; letter-spacing:0.5px;}
-  .news-body h4{margin: 8px 0 10px; font-size:16px; color:var(--tac-text);}
-  .news-body p{font-size:13px; color:var(--tac-muted); margin-bottom:12px;}
-  .news-link{color:var(--tac-blue); font-weight:700; font-size:13px;}
+  .news-body{padding: 24px 26px 28px;}
+  .news-featured .news-body h4{font-size:26px; margin-bottom:10px; text-transform:none; letter-spacing:0;}
+  .news-side-card .news-body h4{font-size:18px; margin-bottom:8px; font-family:var(--display); font-weight:700; letter-spacing:0; text-transform:none;}
+  .news-body p{color:var(--text-muted); font-size:14px; margin-bottom:14px;}
+  .news-link{color:var(--accent); font-weight:700; font-size:13px; font-family:var(--display); letter-spacing:.5px;}
+  .news-side{display:flex; flex-direction:column; gap:24px;}
 
-  /* Contact / Lead form */
-  .contact{
-    background: var(--tac-blue-dark);
-    color:var(--white);
+  /* ================= CONTACT ================= */
+  .contact{background: var(--ink); color:#fff;}
+  .contact-split{display:grid; grid-template-columns: 0.9fr 1.1fr; gap:64px; align-items:start;}
+  .contact-info-list{margin-top:32px; display:flex; flex-direction:column; gap:20px;}
+  .contact-info-list li{display:flex; gap:16px; align-items:flex-start; font-size:15px; color:rgba(255,255,255,0.82);}
+  .contact-info-list .ico{
+    width:38px; height:38px; border-radius:8px; background:rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:16px;
   }
-  .contact .section-title h2{color:var(--white);}
-  .contact .section-title p{color:rgba(255,255,255,0.75);}
   .contact-wrap{
-    background: var(--white);
-    color: var(--tac-text);
-    border-radius: 14px;
-    padding: 20px;
-    max-width: 720px;
-    margin: 0 auto;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    background: var(--surface); color: var(--text); border-radius: 16px; padding: 8px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.35);
   }
 
-  /* Footer */
-  footer{
-    background: #0a1330;
-    color: rgba(255,255,255,0.8);
-    padding: 56px 24px 24px;
+  /* Re-skin the embedded Zoho lead form */
+  .contact-wrap #crmWebToEntityForm, .contact-wrap #crmWebToEntityForm *{font-family: var(--body-font) !important;}
+  .contact-wrap .zcwf_title{display:none;}
+  .contact-wrap .zcwf_col_fld input[type=text], .contact-wrap .zcwf_col_fld textarea, .contact-wrap .zcwf_col_fld_slt{
+    border: 1px solid var(--line) !important; border-radius: 8px !important; padding: 9px 12px !important;
+    transition: border-color .2s ease, box-shadow .2s ease;
   }
+  .contact-wrap .zcwf_col_fld input[type=text]:focus, .contact-wrap .zcwf_col_fld textarea:focus, .contact-wrap .zcwf_col_fld_slt:focus{
+    outline:none; border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(47,107,255,0.15);
+  }
+  .contact-wrap .formsubmit.zcwf_button{
+    background: var(--accent) !important; border-radius: 6px !important; padding: 11px 24px !important;
+    font-family:var(--display) !important; font-weight:700 !important; letter-spacing:.5px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .contact-wrap .formsubmit.zcwf_button:hover{transform: translateY(-2px); box-shadow: 0 10px 22px rgba(47,107,255,0.35);}
+  .contact-wrap .zcwf_button[role=button][name=reset]{border-radius:6px !important;}
+
+  /* ================= FOOTER ================= */
+  footer{background: #05070F; color: rgba(255,255,255,0.75); padding: 64px 32px 24px;}
   .footer-grid{
-    max-width:1400px; margin:0 auto;
-    display:grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
-    gap: 32px;
-    padding-bottom: 34px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    max-width:1440px; margin:0 auto; display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+    gap: 32px; padding-bottom: 36px; border-bottom: 1px solid var(--line-dark);
   }
-  .footer-grid h4{color:var(--white); font-size:14px; margin-bottom:16px; letter-spacing:0.5px;}
-  .footer-grid li{margin-bottom:10px; font-size:13px;}
-  .footer-grid li a:hover{color:var(--white);}
-  .footer-logo{font-weight:800; font-size:20px; color:var(--white); margin-bottom:14px;}
+  .footer-grid h4{font-family:var(--display); color:#fff; font-size:13px; margin-bottom:18px; letter-spacing:1.5px; text-transform:uppercase;}
+  .footer-grid li{margin-bottom:11px; font-size:13.5px;}
+  .footer-grid li a:hover{color:#fff;}
+  .footer-logo{font-family:var(--display); font-weight:800; font-size:22px; color:#fff; margin-bottom:14px;}
   .footer-bottom{
-    max-width:1400px; margin:0 auto;
-    display:flex; justify-content:space-between; align-items:center;
-    padding-top:20px; font-size:12px; flex-wrap:wrap; gap:12px;
+    max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;
+    padding-top:22px; font-size:12px; flex-wrap:wrap; gap:12px;
   }
 
-  @media (max-width: 1000px){
-    .about-grid{grid-template-columns: 1fr;}
+  /* ================= BACK TO TOP ================= */
+  .back-to-top{
+    position:fixed; right:24px; bottom:24px; z-index:300;
+    width:46px; height:46px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; font-weight:700; border:none; cursor:pointer;
+    box-shadow: 0 10px 24px rgba(47,107,255,0.4);
+    opacity:0; transform:translateY(12px); pointer-events:none;
+    transition: opacity .25s ease, transform .25s ease, background .2s ease;
+  }
+  .back-to-top.visible{opacity:1; transform:translateY(0); pointer-events:auto;}
+  .back-to-top:hover{background:var(--accent-2);}
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 1050px){
+    .about-split{grid-template-columns:1fr; gap:44px;}
+    .news-layout{grid-template-columns:1fr;}
+    .news-featured img{min-height:260px;}
+    .contact-split{grid-template-columns:1fr; gap:40px;}
     .brand-grid{grid-template-columns: repeat(3, 1fr);}
-    .network-grid{grid-template-columns: repeat(2, 1fr);}
-    .news-grid{grid-template-columns: 1fr;}
     .footer-grid{grid-template-columns: 1fr 1fr;}
-    nav{display:none;}
+    section{padding:72px 24px;}
+  }
+  @media (max-width: 720px){
+    .stat-item + .stat-item::before, .network-item + .network-item::before{display:none;}
+    .stat-item, .network-item{flex:1 1 45%;}
+  }
+  @media (max-width: 1000px){
+    nav ul{display:none;}
+    .nav-cta{display:none;}
+    .nav-toggle{display:flex;}
+    #siteNav{
+      position:absolute; top:100%; left:0; right:0; background:var(--surface);
+      box-shadow: 0 16px 32px rgba(8,12,26,0.14); max-height:0; overflow:hidden; transition: max-height .3s ease;
+    }
+    #siteNav.open{max-height:560px;}
+    #siteNav ul{display:flex; flex-direction:column; align-items:stretch; gap:0; padding:8px 0;}
+    #siteNav ul li > a{padding:14px 24px; text-align:left;}
+    #siteNav ul li > a::after{display:none;}
+    #siteNav ul li .submenu{position:static; box-shadow:none; display:block; max-height:0; overflow:hidden; padding:0; border:none; transition:max-height .25s ease;}
+    #siteNav ul li.submenu-open .submenu{max-height:400px; padding:4px 0;}
+    #siteNav ul li .submenu a{padding:9px 24px 9px 38px;}
   }
 </style>
 </head>
@@ -282,11 +376,11 @@
     </div>
   </div>
   <div class="navwrap">
-    <a href="#" class="logo">TOWELL AUTO CENTRE</a>
-    <nav>
+    <a href="#" class="logo">TOWELL<span>AUTO CENTRE</span></a>
+    <nav id="siteNav">
       <ul>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#brands">BRANDS</a>
+        <li><a href="#about">About</a></li>
+        <li class="has-submenu"><a href="#brands">Brands</a>
           <div class="submenu">
             <a href="#brands">Mazda</a>
             <a href="#brands">JAC</a>
@@ -300,65 +394,112 @@
             <a href="#brands">Bandag</a>
           </div>
         </li>
-        <li><a href="#network">AFTER SALES</a></li>
-        <li><a href="#news">NEWS &amp; EVENTS</a></li>
-        <li><a href="#">CAREERS</a></li>
-        <li><a href="#">OFFERS</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#network">After Sales</a></li>
+        <li><a href="#news">News &amp; Events</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Offers</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 22px; font-size:14px;">Get In Touch</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <section class="hero">
+  <div class="hero-bg">
+    <img src="https://towellauto.com/en/wp-content/uploads/revslider/slider-1/Automotive-Header.jpg" alt="Towell Auto Centre vehicles">
+  </div>
   <div class="hero-inner">
-    <h1>Oman's Trusted Name in Automotive Since 1972</h1>
+    <span class="eyebrow">Est. 1972 · Oman's Automotive Group</span>
+    <h1>Oman's Trusted<br>Name in <em>Automotive</em></h1>
     <p>Vehicles, parts, service, tyres and lubricants — Towell Auto Centre keeps you moving with genuine quality and nationwide support.</p>
-    <a href="#contact" class="hero-cta">Get In Touch</a>
+    <div class="hero-btn-row">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#brands" class="btn btn-ghost">Explore Brands</a>
+    </div>
     <div class="hero-tags">
-      <span>AUTOMOTIVE</span>
-      <span>LUBES</span>
-      <span>TYRES</span>
-      <span>BATTERIES</span>
+      <span>Automotive</span>
+      <span>Lubes</span>
+      <span>Tyres</span>
+      <span>Batteries</span>
     </div>
   </div>
+  <div class="scroll-cue"><span class="line"></span>Scroll</div>
 </section>
+
+<div class="marquee-section">
+  <div class="marquee-head"><span>Brands we represent across Oman</span></div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Mazda.png" alt="Mazda">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Jac-Motors.png" alt="JAC">
+      <img src="https://towellauto.com/en/wp-content/uploads/2026/05/212-Logo-215x215-1.png" alt="212">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/King-Long.png" alt="King Long">
+      <img src="https://towellauto.com/en/wp-content/uploads/2025/05/Bridgestone.png" alt="Bridgestone">
+      <img src="https://towellauto.com/en/wp-content/uploads/2025/05/bandag.png" alt="Bandag">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Hafmann.png" alt="Hofmann">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Total.png" alt="TotalEnergies">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Value-Cars-Logo.png" alt="Value Cars">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Lucas.png" alt="Lucas">
+      <!-- duplicated for a seamless loop -->
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Mazda.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Jac-Motors.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2026/05/212-Logo-215x215-1.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/King-Long.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2025/05/Bridgestone.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2025/05/bandag.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Hafmann.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Total.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Value-Cars-Logo.png" alt="" aria-hidden="true">
+      <img src="https://towellauto.com/en/wp-content/uploads/2024/09/Lucas.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+</div>
 
 <section id="about">
-  <div class="section-inner">
-    <div class="section-title">
-      <h2>Welcome to Towell Auto Centre LLC</h2>
-      <p>Serving Oman's automotive needs for over five decades with a full range of vehicles, parts and after-sales support.</p>
+  <div class="section-inner about-split reveal">
+    <div class="about-copy">
+      <span class="eyebrow">Who We Are</span>
+      <h2 style="text-transform:none; font-size:clamp(30px,3.6vw,44px); margin-top:14px;">Serving Oman's automotive needs for over five decades</h2>
+      <p>A leading automotive group in Oman, representing world-class brands across passenger cars, commercial vehicles, industrial equipment, tyres and lubricants — backed by a nationwide service network.</p>
+      <a href="#network" class="btn btn-dark">Our Network</a>
     </div>
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>WHO WE ARE</h3>
-        <p>A leading automotive group in Oman, representing world-class brands across passenger cars, commercial vehicles and industrial equipment.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">01</span>
+        <div><h3>Who We Are</h3><p>A leading automotive group in Oman, representing world-class brands across passenger cars, commercial vehicles and industrial equipment.</p></div>
       </div>
-      <div class="about-card">
-        <h3>MISSION</h3>
-        <p>To deliver exceptional value and service to every customer, backed by genuine parts and expert technical support.</p>
+      <div class="pillar">
+        <span class="num">02</span>
+        <div><h3>Mission</h3><p>To deliver exceptional value and service to every customer, backed by genuine parts and expert technical support.</p></div>
       </div>
-      <div class="about-card">
-        <h3>VISION</h3>
-        <p>To be Oman's most trusted automotive partner, driving innovation and quality across every brand we represent.</p>
+      <div class="pillar">
+        <span class="num">03</span>
+        <div><h3>Vision</h3><p>To be Oman's most trusted automotive partner, driving innovation and quality across every brand we represent.</p></div>
       </div>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>10+</strong><span>Brands</span></div>
-      <div class="stat"><strong>6+</strong><span>Categories</span></div>
-      <div class="stat"><strong>500+</strong><span>Employees</span></div>
     </div>
   </div>
 </section>
 
-<section id="brands" class="brands">
+<div class="stats-band">
+  <div class="stats-row reveal">
+    <div class="stat-item"><strong data-count="10" data-suffix="+">0</strong><span>Brands</span></div>
+    <div class="stat-item"><strong data-count="6" data-suffix="+">0</strong><span>Categories</span></div>
+    <div class="stat-item"><strong data-count="500" data-suffix="+">0</strong><span>Employees</span></div>
+  </div>
+</div>
+
+<section id="brands">
   <div class="section-inner">
-    <div class="section-title">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow" style="justify-content:center;">Our Portfolio</span>
       <h2>Brands</h2>
-      <p>Trusted global names, available through our network across Oman.</p>
+      <p style="margin-left:auto;margin-right:auto;">Trusted global names, available through our network across Oman.</p>
     </div>
-    <div class="brand-grid">
+    <div class="brand-grid reveal">
       <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Mazda.png" alt="Mazda"></div>
       <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2024/09/Jac-Motors.png" alt="JAC"></div>
       <div class="brand-tile"><img src="https://towellauto.com/en/wp-content/uploads/2026/05/212-Logo-215x215-1.png" alt="212"></div>
@@ -373,494 +514,310 @@
   </div>
 </section>
 
-<section id="network">
-  <div class="section-inner">
-    <div class="section-title">
+<div class="network-band" id="network">
+  <div class="section-inner" style="padding:76px 32px;">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow" style="justify-content:center;">After Sales</span>
       <h2>Our Network Across Oman</h2>
-      <p>Always nearby, so we can support you at every stage of ownership.</p>
+      <p style="margin-left:auto;margin-right:auto;">Always nearby, so we can support you at every stage of ownership.</p>
     </div>
-    <div class="network-grid">
-      <div class="network-card"><strong>8</strong><span>SHOWROOMS</span></div>
-      <div class="network-card"><strong>9</strong><span>SERVICE CENTRES</span></div>
-      <div class="network-card"><strong>9</strong><span>PARTS CENTRES</span></div>
-      <div class="network-card"><strong>25</strong><span>TYRE LOCATIONS</span></div>
+    <div class="network-row reveal">
+      <div class="network-item"><strong data-count="8">0</strong><span>Showrooms</span></div>
+      <div class="network-item"><strong data-count="9">0</strong><span>Service Centres</span></div>
+      <div class="network-item"><strong data-count="9">0</strong><span>Parts Centres</span></div>
+      <div class="network-item"><strong data-count="25">0</strong><span>Tyre Locations</span></div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="news" class="brands">
+<section id="news">
   <div class="section-inner">
-    <div class="section-title">
+    <div class="section-head">
+      <span class="eyebrow">Stay Connected</span>
       <h2>News &amp; Events</h2>
-      <p>Stay connected with the latest updates from Towell Auto Centre.</p>
+      <p>The latest updates from Towell Auto Centre.</p>
     </div>
-    <div class="news-grid">
-      <div class="news-card">
-        <img src="https://towellauto.com/en/wp-content/uploads/2025/12/1.jpg" alt="News">
+    <div class="news-layout reveal">
+      <a href="#" class="news-featured">
+        <div class="news-img-wrap">
+          <img src="https://towellauto.com/en/wp-content/uploads/2025/12/1.jpg" alt="News">
+          <span class="news-date-badge">24 Nov 2025</span>
+        </div>
         <div class="news-body">
-          <div class="news-date">24 NOV 2025</div>
           <h4>Zero-Interest Car Financing with Sohar International Bank</h4>
           <p>Towell Auto Centre and Sohar International Bank announce a strategic collaboration.</p>
-          <a href="#" class="news-link">LEARN MORE →</a>
+          <span class="news-link">LEARN MORE →</span>
         </div>
-      </div>
-      <div class="news-card">
-        <img src="https://towellauto.com/en/wp-content/uploads/2025/02/1920X1080-Blog-min.jpg" alt="News">
-        <div class="news-body">
-          <div class="news-date">13 FEB 2025</div>
-          <h4>Towell Auto Group CEO Honored at CXO Awards 2024</h4>
-          <p>Recognized as "CEO of the Year – Auto" for outstanding industry leadership.</p>
-          <a href="#" class="news-link">LEARN MORE →</a>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://towellauto.com/en/wp-content/uploads/2025/02/mazda-cx-90-earns-two-prestigious-awards-as-premium-family-suv-of-the-year.jpg" alt="News">
-        <div class="news-body">
-          <div class="news-date">13 FEB 2025</div>
-          <h4>Mazda CX-90 Named Premium Family SUV of the Year</h4>
-          <p>The Mazda CX-90 secures two prestigious accolades for design and performance.</p>
-          <a href="#" class="news-link">LEARN MORE →</a>
-        </div>
+      </a>
+      <div class="news-side">
+        <a href="#" class="news-side-card">
+          <div class="news-img-wrap">
+            <img src="https://towellauto.com/en/wp-content/uploads/2025/02/1920X1080-Blog-min.jpg" alt="News">
+            <span class="news-date-badge">13 Feb 2025</span>
+          </div>
+          <div class="news-body">
+            <h4>Towell Auto Group CEO Honored at CXO Awards 2024</h4>
+            <p>Recognized as "CEO of the Year – Auto" for outstanding industry leadership.</p>
+            <span class="news-link">LEARN MORE →</span>
+          </div>
+        </a>
+        <a href="#" class="news-side-card">
+          <div class="news-img-wrap">
+            <img src="https://towellauto.com/en/wp-content/uploads/2025/02/mazda-cx-90-earns-two-prestigious-awards-as-premium-family-suv-of-the-year.jpg" alt="News">
+            <span class="news-date-badge">13 Feb 2025</span>
+          </div>
+          <div class="news-body">
+            <h4>Mazda CX-90 Named Premium Family SUV of the Year</h4>
+            <p>The Mazda CX-90 secures two prestigious accolades for design and performance.</p>
+            <span class="news-link">LEARN MORE →</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
-  <div class="section-inner">
-    <div class="section-title">
-      <h2>Get In Touch</h2>
-      <p>Have a question about our vehicles, parts or services? Send us your details and our team will be in touch.</p>
+  <div class="section-inner contact-split reveal">
+    <div>
+      <span class="eyebrow on-dark">Get In Touch</span>
+      <h2 style="text-transform:none; font-size:clamp(30px,3.6vw,44px); margin-top:14px;">Have a question about our vehicles, parts or services?</h2>
+      <p style="color:rgba(255,255,255,0.7); margin-top:14px; max-width:420px;">Send us your details and our team will be in touch.</p>
+      <ul class="contact-info-list">
+        <li><span class="ico">📞</span> +968 24229100</li>
+        <li><span class="ico">✉</span> tacgen@towellauto.com</li>
+        <li><span class="ico">📍</span> P.O.Box: 1194 | P.C:130 | Azaiba | Muscat | Sultanate Of Oman</li>
+      </ul>
     </div>
     <div class="contact-wrap">
 
 <!-- ===== Zoho Web-to-Lead Form (unmodified logic) ===== -->
-<div id = 'crmWebToEntityForm' class = 'zcwf_lblLeft crmWebToEntityForm' style = 'background-color: white;color: black;max-width: 600px;'>
-	<meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
-		<META HTTP-EQUIV = 'content-type' CONTENT = 'text/html;charset=UTF-8'>
-			<form id = 'webform7516066000000694302' action = 'https://crm.zoho.com/crm/WebToLeadForm' name = WebToLeads7516066000000694302 method = 'POST' onSubmit = 'javascript:document.charset="UTF-8"; return checkMandatory7516066000000694302()' accept-charset = 'UTF-8'>
-				<input type = 'text' style = 'display:none;' name = 'xnQsjsdp' value = 'db256d3292d9c009b3982487d6a568f11d38a6bc9031e4b8d842f5e1eb76397d'>
-				</input>
-				<input type = 'hidden' name = 'zc_gad' id = 'zc_gad' value = ''>
-				</input>
-				<input type = 'text' style = 'display:none;' name = 'xmIwtLD' value = 'bbaf1b908d968a3435a9636ec1131f90642e709578024b08d8dae21a6058b96bde4f2d7ea7a68a50be411ad195e5dc2b'>
-				</input>
-				<input type = 'text' style = 'display:none;' name = 'actionType' value = 'TGVhZHM='>
-				</input>
-				<input type = 'text' style = 'display:none;' name = 'returnURL' value = 'null'>
-				</input>
-				<!-- Do not remove this code. -->
-				<style>
-					html,body{
-						margin: 0px;
-					}
-					.formsubmit.zcwf_button{
-						color: white !important;
-						background: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
-					}
-					#crmWebToEntityForm.zcwf_lblLeft{
-						width: 100%;
-						padding: 25px;
-						margin: 0 auto;
-						box-sizing: border-box;
-					}
-					#crmWebToEntityForm.zcwf_lblLeft *{
-						box-sizing: border-box;
-					}
-					#crmWebToEntityForm{
-						text-align: left;
-					}
-					#crmWebToEntityForm *{
-						direction: ltr;
-					}
-					.zcwf_lblLeft .zcwf_title{
-						word-wrap: break-word;
-						padding: 0px 6px 10px;
-						font-weight: bold }
-					.zcwf_lblLeft.cpT_primaryBtn:hover{
-						background: linear-gradient(#02acff 0,#006be4 100%)no-repeat padding-box !important;
-						box-shadow: 0 -2px 0 0  #0159b9 inset !important;
-						border: 0 !important;
-						color:  #fff !important;
-						outline: 0 !important;
-					}
-					.zcwf_lblLeft .zcwf_col_fld input[ type  = text], input[ type  = password], .zcwf_lblLeft .zcwf_col_fld textarea{
-						width: 60%;
-						border: 1px solid  #c0c6cc !important;
-						resize: vertical;
-						border-radius: 2px;
-						float: left;
-					}
-					.zcwf_lblLeft .zcwf_col_lab{
-						width: 30%;
-						word-break: break-word;
-						padding: 0px 6px 0px;
-						margin-right: 10px;
-						margin-top: 5px;
-						float: left;
-						min-height: 1px;
-					}
-					.zcwf_lblLeft .zcwf_col_fld{
-						float: left;
-						width: 68%;
-						padding: 0px 6px 0px;
-						position: relative;
-						margin-top: 5px;
-					}
-					.zcwf_lblLeft .zcwf_privacy{
-						padding: 6px;
-					}
-					.zcwf_lblLeft .wfrm_fld_dpNn{
-						display: none;
-					}
-					.dIB{
-						display: inline-block;
-					}
-					.zcwf_lblLeft .zcwf_col_fld_slt{
-						width: 60%;
-						border: 1px solid  #ccc;
-						background:  #fff;
-						border-radius: 4px;
-						font-size: 12px;
-						float: left;
-						resize: vertical;
-						padding: 2px 5px;
-					}
-					.zcwf_lblLeft .zcwf_row:after, .zcwf_lblLeft .zcwf_col_fld:after{
-						content: '';
-						display: table;
-						clear: both;
-					}
-					.zcwf_lblLeft .zcwf_col_help{
-						float: left;
-						margin-left: 7px;
-						font-size: 12px;
-						max-width: 35%;
-						word-break: break-word;
-					}
-					.zcwf_lblLeft .zcwf_help_icon{
-						cursor: pointer;
-						width: 16px;
-						height: 16px;
-						display: inline-block;
-						background:  #fff;
-						border: 1px solid  #c0c6cc;
-						color:  #c1c1c1;
-						text-align: center;
-						font-size: 11px;
-						line-height: 16px;
-						font-weight: bold;
-						border-radius: 50%;
-					}
-					.zcwf_lblLeft .zcwf_row{
-						margin: 15px 0px;
-					}
-					.zcwf_lblLeft .formsubmit{
-						margin-right: 5px;
-						cursor: pointer;
-						color:  #313949;
-						font-size: 12px;
-					}
-					.zcwf_lblLeft .zcwf_privacy_txt{
-						width: 90%;
-						color: rgb(0, 0, 0);
-						font-size: 12px;
-						font-family: Arial;
-						display: inline-block;
-						vertical-align: top;
-						color:  #313949;
-						padding-top: 2px;
-						margin-left: 6px;
-					}
-					.zcwf_lblLeft .zcwf_button{
-						font-size: 12px;
-						color:  #313949;
-						border: 1px solid  #c0c6cc;
-						padding: 3px 9px;
-						border-radius: 4px;
-						cursor: pointer;
-						max-width: 120px;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-					}
-					.zcwf_lblLeft .zcwf_tooltip_over{
-						position: relative;
-					}
-					.zcwf_lblLeft .zcwf_tooltip_ctn{
-						position: absolute;
-						background:  #dedede;
-						padding: 3px 6px;
-						top: 3px;
-						border-radius: 4px;
-						word-break: break-word;
-						min-width: 100px;
-						max-width: 150px;
-						color:  #313949;
-						z-index: 100;
-					}
-					.zcwf_lblLeft .zcwf_ckbox{
-						float: left;
-					}
-					.zcwf_lblLeft .zcwf_file{
-						width: 55%;
-						box-sizing: border-box;
-						float: left;
-					}
-					.cBoth:after{
-						content: '';
-						display: block;
-						clear: both;
-					}
-					@media all and  (max-width: 600px){
-						.zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld{
-							width: auto;
-							float: none !important;
-						}
-						.zcwf_lblLeft .zcwf_col_help{
-							width: 40%;
-						}
-					}
-				</style>
-				<div class = 'zcwf_title' style = 'max-width: 600px;color: black; font-family:Arial;'>Lead Form</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'First_Name'>First Name</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<input type = 'text' id = 'First_Name' aria-required = 'false' aria-label = 'First Name' name = 'First Name' aria-valuemax = '40' maxlength = '40'>
-						</input>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Last_Name'>Last Name
-							<span style = 'color:red;'>*</span>
-						</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<input type = 'text' id = 'Last_Name' aria-required = 'true' aria-label = 'Last Name' name = 'Last Name' aria-valuemax = '80' maxlength = '80'>
-						</input>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row wfrm_fld_dpNn'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Lead_Source'>Lead Source</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<select class = 'zcwf_col_fld_slt' role = 'combobox' aria-expanded = 'false' aria-haspopup = 'listbox' id = 'Lead_Source' onChange = 'addAriaSelected7516066000000694302()' aria-required = 'false' aria-label = 'Lead Source' name = 'Lead Source'>
-							<option value = '-None-'>-None-</option>
-							<option value = 'Advertisement'>Advertisement</option>
-							<option value = 'Cold Call'>Cold Call</option>
-							<option value = 'Employee Referral'>Employee Referral</option>
-							<option value = 'External Referral'>External Referral</option>
-							<option value = 'Online Store'>Online Store</option>
-							<option value = 'X (Twitter)'>X (Twitter)</option>
-							<option value = 'Facebook'>Facebook</option>
-							<option value = 'Partner'>Partner</option>
-							<option value = 'Public Relations'>Public Relations</option>
-							<option value = 'Sales Email Alias'>Sales Email Alias</option>
-							<option value = 'Seminar Partner'>Seminar Partner</option>
-							<option value = 'Internal Seminar'>Internal Seminar</option>
-							<option value = 'Trade Show'>Trade Show</option>
-							<option value = 'Web Download'>Web Download</option>
-							<option selected value = 'Web Research'>Web Research</option>
-							<option value = 'Chat'>Chat</option>
-						</select>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Email'>Email</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'false' aria-label = 'Email' name = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
-						</input>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Phone'>Phone</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<input type = 'text' id = 'Phone' aria-required = 'false' aria-label = 'Phone' name = 'Phone' aria-valuemax = '30' maxlength = '30'>
-						</input>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Company'>Company
-							<span style = 'color:red;'>*</span>
-						</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<input type = 'text' id = 'Company' aria-required = 'true' aria-label = 'Company' name = 'Company' aria-valuemax = '200' maxlength = '200'>
-						</input>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Industry'>Industry</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<select class = 'zcwf_col_fld_slt' role = 'combobox' aria-expanded = 'false' aria-haspopup = 'listbox' id = 'Industry' onChange = 'addAriaSelected7516066000000694302()' aria-required = 'false' aria-label = 'Industry' name = 'Industry'>
-							<option value = '-None-'>-None-</option>
-							<option value = 'ASP (Application Service Provider)'>ASP (Application Service Provider)</option>
-							<option value = 'Data/Telecom OEM'>Data/Telecom OEM</option>
-							<option value = 'ERP (Enterprise Resource Planning)'>ERP (Enterprise Resource Planning)</option>
-							<option value = 'Government/Military'>Government/Military</option>
-							<option value = 'Large Enterprise'>Large Enterprise</option>
-							<option value = 'ManagementISV'>ManagementISV</option>
-							<option value = 'MSP (Management Service Provider)'>MSP (Management Service Provider)</option>
-							<option value = 'Network Equipment Enterprise'>Network Equipment Enterprise</option>
-							<option value = 'Non-management ISV'>Non-management ISV</option>
-							<option value = 'Optical Networking'>Optical Networking</option>
-							<option value = 'Service Provider'>Service Provider</option>
-							<option value = 'Small/Medium Enterprise'>Small/Medium Enterprise</option>
-							<option value = 'Storage Equipment'>Storage Equipment</option>
-							<option value = 'Storage Service Provider'>Storage Service Provider</option>
-							<option value = 'Systems Integrator'>Systems Integrator</option>
-							<option value = 'Wireless Industry'>Wireless Industry</option>
-							<option value = 'ERP'>ERP</option>
-							<option value = 'Management ISV'>Management ISV</option>
-						</select>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab' style = 'font-size:12px; font-family: Arial;'>
-						<label for = 'Description'>Description</label>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<textarea style = 'font-family: Arial, sans-serif;' aria-multiline = 'true' id = 'Description' aria-required = 'false' aria-label = 'Description' name = 'Description'></textarea>
-						<div class = 'zcwf_col_help'>
-						</div>
-					</div>
-				</div>
-				<input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
-				<div class = 'zcwf_row'>
-					<div class = 'zcwf_col_lab'>
-					</div>
-					<div class = 'zcwf_col_fld'>
-						<input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Submit' aria-label = 'Submit' title = 'Submit'>
-							<input type = 'reset' class = 'zcwf_button' role = 'button' name = 'reset' value = 'Reset' aria-label = 'Reset' title = 'Reset'>
-							</div>
-						</div>
-						<script>
-							function addAriaSelected7516066000000694302(){
-								var optionElem = event.target;
-								var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
-								if (previousSelectedOption) {
-									previousSelectedOption.removeAttribute('aria-selected');
-								}
-								optionElem.querySelectorAll('option') [optionElem.selectedIndex] .ariaSelected = 'true';
-							}
-							function validateEmail7516066000000694302(){
-								var form = document.forms['WebToLeads7516066000000694302'];
-								var emailFld = form.querySelectorAll('[ftype=email]');
-								var i;
-								for(i = 0; i < emailFld.length; i++ ) {
-									var emailVal = emailFld[i].value;
-									if ((emailVal.replace (/^\s+|\s+$/g,'') ) .length != 0) {
-										var atpos = emailVal.indexOf('@');
-										var dotpos = emailVal.lastIndexOf('.');
-										if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
-											alert('Please enter a valid email address. ');
-											emailFld[i].focus();
-											return false;
-										}
-									}
-								}
-								return true;
-							}
-							function checkMandatory7516066000000694302(isAjax){
-								var mndFileds = new Array('Company', 'Last Name');
-								var fldLangVal = new Array('Company', 'Last Name');
-								for (i = 0; i < mndFileds.length; i++ ) {
-									var fieldObj = document.forms['WebToLeads7516066000000694302'] [mndFileds[i]];
-									if (fieldObj) {
-										if(((fieldObj.value) .replace (/^\s+|\s+$/g,'') ) .length == 0) {
-											if (fieldObj.type == 'file') {
-												alert('Please select a file to upload.');
-												fieldObj.focus();
-												return false;
-											}
-											alert(fldLangVal[i] + ' cannot be empty.');
-											fieldObj.focus();
-											return false;
-										} else if (fieldObj.nodeName == 'SELECT') {
-											if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
-												alert(fldLangVal[i] + ' cannot be none.');
-												fieldObj.focus();
-												return false;
-											}
-										} else if (fieldObj.type == 'checkbox') {
-											if (fieldObj.checked == false) {
-												alert('Please accept  ' + fldLangVal[i]);
-												fieldObj.focus();
-												return false;
-											}
-										}
-										try{
-											if (fieldObj.name == 'Last Name') {
-												name = fieldObj.value;
-											}
-										} catch (e){}
-									}
-								}
-								if ( !validateEmail7516066000000694302 () ) {
-									return false;
-								}
-								var urlparams = new URLSearchParams(window.location.search);
-								if (urlparams.has ('service') && (urlparams.get ('service') === 'smarturl') ) {
-									var webform = document.getElementById('webform7516066000000694302');
-									var service = urlparams.get('service');
-									var smarturlfield = document.createElement('input');
-									smarturlfield.setAttribute('type', 'hidden');
-									smarturlfield.setAttribute('value', service);
-									smarturlfield.setAttribute('name', 'service');
-									webform.appendChild(smarturlfield);
-								}
-								document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
-							}
-							_wFa_ajax_will_be_replaced = false;
-							if (typeof _wfa_fstprtcken == 'undefined') {
-								_wfa_fstprtcken = {};
-							}
-							_wfa_fstprtcken[7516066000000694302] = true;
-							function tooltipShow7516066000000694302(el){
-								var tooltip = el.nextElementSibling;
-								var tooltipDisplay = tooltip.style.display;
-								if (tooltipDisplay == 'none') {
-									var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
-									for (i = 0; i < allTooltip.length; i++ ) {
-										allTooltip[i].style.display = 'none';
-									}
-									tooltip.style.display = 'block';
-								} else {
-									tooltip.style.display = 'none';
-								}
-							}
-						</script>
-						<!-- Do not remove this --- Analytics Tracking code starts -->
-						<script id = 'wf_anal' src = 'https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=e348e66aa38cdf7509614e6879fb624abe34460fac682b3a49a44a33946969749b7225a93a7306b252fd2f5093991507gidff84e1a899dab265c5a3fec375c3dc0330dda394d4898a8ab3bfb7cdf7206e50gid8bd02251b0d2708a6839096a80374dbcd0646b5713046a72ca056afe6bf5deacgid806028fdef59a162894a4e20c1b8f54d6212ccfbaf256839a8fe24f4b24b0e43&tw=186a209ce1748fcf19a6bd6b4531d5f18997de7d52526b93bc18850819d38bbc&version=v2'>
-					</script>
-					<!-- Do not remove this --- Analytics Tracking code ends. -->
-				</form>
+<div id='crmWebToEntityForm' class='zcwf_lblLeft crmWebToEntityForm' style='background-color: white;color: black;max-width: 600px;'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<META HTTP-EQUIV='content-type' CONTENT='text/html;charset=UTF-8'>
+	<form id='webform7516066000000694302' action='https://crm.zoho.com/crm/WebToLeadForm' name=WebToLeads7516066000000694302 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory7516066000000694302()' accept-charset='UTF-8'>
+		<input type='text' style='display:none;' name='xnQsjsdp' value='d16c2e31e90fdec5643ba108b3d6d1c0afedebed4ed803547507836a6715593a'></input>
+		<input type='hidden' name='zc_gad' id='zc_gad' value=''></input>
+		<input type='text' style='display:none;' name='xmIwtLD' value='188a5fb5876b443f44041e26da3506a3c985e0d32382baa8f2e4a08befc03b90cfda49020e66d5f2f4111fc5789cff0e'></input>
+		<input type='text' style='display:none;' name='actionType' value='TGVhZHM='></input>
+		<input type='text' style='display:none;' name='returnURL' value='null'></input>
+		<!-- Do not remove this code. -->
+		<style>
+			html,body{margin: 0px;}
+			.formsubmit.zcwf_button{color: white !important;background: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);}
+			#crmWebToEntityForm.zcwf_lblLeft{width: 100%;padding: 25px;margin: 0 auto;box-sizing: border-box;}
+			#crmWebToEntityForm.zcwf_lblLeft *{box-sizing: border-box;}
+			#crmWebToEntityForm{text-align: left;}
+			#crmWebToEntityForm *{direction: ltr;}
+			.zcwf_lblLeft .zcwf_title{word-wrap: break-word;padding: 0px 6px 10px;font-weight: bold }
+			.zcwf_lblLeft.cpT_primaryBtn:hover{background: linear-gradient(#02acff 0,#006be4 100%)no-repeat padding-box !important;box-shadow: 0 -2px 0 0  #0159b9 inset !important;border: 0 !important;color:  #fff !important;outline: 0 !important;}
+			.zcwf_lblLeft .zcwf_col_fld input[type=text], input[type=password], .zcwf_lblLeft .zcwf_col_fld textarea{width: 60%;border: 1px solid  #c0c6cc !important;resize: vertical;border-radius: 2px;float: left;}
+			.zcwf_lblLeft .zcwf_col_lab{width: 30%;word-break: break-word;padding: 0px 6px 0px;margin-right: 10px;margin-top: 5px;float: left;min-height: 1px;}
+			.zcwf_lblLeft .zcwf_col_fld{float: left;width: 68%;padding: 0px 6px 0px;position: relative;margin-top: 5px;}
+			.zcwf_lblLeft .zcwf_privacy{padding: 6px;}
+			.zcwf_lblLeft .wfrm_fld_dpNn{display: none;}
+			.dIB{display: inline-block;}
+			.zcwf_lblLeft .zcwf_col_fld_slt{width: 60%;border: 1px solid  #ccc;background:  #fff;border-radius: 4px;font-size: 12px;float: left;resize: vertical;padding: 2px 5px;}
+			.zcwf_lblLeft .zcwf_row:after, .zcwf_lblLeft .zcwf_col_fld:after{content: '';display: table;clear: both;}
+			.zcwf_lblLeft .zcwf_col_help{float: left;margin-left: 7px;font-size: 12px;max-width: 35%;word-break: break-word;}
+			.zcwf_lblLeft .zcwf_help_icon{cursor: pointer;width: 16px;height: 16px;display: inline-block;background:  #fff;border: 1px solid  #c0c6cc;color:  #c1c1c1;text-align: center;font-size: 11px;line-height: 16px;font-weight: bold;border-radius: 50%;}
+			.zcwf_lblLeft .zcwf_row{margin: 15px 0px;}
+			.zcwf_lblLeft .formsubmit{margin-right: 5px;cursor: pointer;color:  #313949;font-size: 12px;}
+			.zcwf_lblLeft .zcwf_privacy_txt{width: 90%;color: rgb(0, 0, 0);font-size: 12px;font-family: Arial;display: inline-block;vertical-align: top;color:  #313949;padding-top: 2px;margin-left: 6px;}
+			.zcwf_lblLeft .zcwf_button{font-size: 12px;color:  #313949;border: 1px solid  #c0c6cc;padding: 3px 9px;border-radius: 4px;cursor: pointer;max-width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+			.zcwf_lblLeft .zcwf_tooltip_over{position: relative;}
+			.zcwf_lblLeft .zcwf_tooltip_ctn{position: absolute;background:  #dedede;padding: 3px 6px;top: 3px;border-radius: 4px;word-break: break-word;min-width: 100px;max-width: 150px;color:  #313949;z-index: 100;}
+			.zcwf_lblLeft .zcwf_ckbox{float: left;}
+			.zcwf_lblLeft .zcwf_file{width: 55%;box-sizing: border-box;float: left;}
+			.cBoth:after{content: '';display: block;clear: both;}
+			@media all and  (max-width: 600px){
+				.zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld{width: auto;float: none !important;}
+				.zcwf_lblLeft .zcwf_col_help{width: 40%;}
+			}
+		</style>
+		<div class='zcwf_title' style='max-width: 600px;color: black; font-family:Arial;'>Lead Form</div>
+		<div class='zcwf_row'>
+			<div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+				<label for='First_Name'>First Name</label>
 			</div>
+			<div class='zcwf_col_fld'>
+				<input type='text' id='First_Name' aria-required='false' aria-label='First Name' name='First Name' aria-valuemax='40' maxlength='40'></input>
+				<div class='zcwf_col_help'></div>
+			</div>
+		</div>
+		<div class='zcwf_row'>
+			<div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+				<label for='Last_Name'>Last Name <span style='color:red;'>*</span></label>
+			</div>
+			<div class='zcwf_col_fld'>
+				<input type='text' id='Last_Name' aria-required='true' aria-label='Last Name' name='Last Name' aria-valuemax='80' maxlength='80'></input>
+				<div class='zcwf_col_help'></div>
+			</div>
+		</div>
+		<div class='zcwf_row wfrm_fld_dpNn'>
+			<div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+				<label for='Lead_Source'>Lead Source</label>
+			</div>
+			<div class='zcwf_col_fld'>
+				<select class='zcwf_col_fld_slt' role='combobox' aria-expanded='false' aria-haspopup='listbox' id='Lead_Source' onChange='addAriaSelected7516066000000694302()' aria-required='false' aria-label='Lead Source' name='Lead Source'>
+					<option value='-None-'>-None-</option>
+					<option value='Advertisement'>Advertisement</option>
+					<option value='Cold Call'>Cold Call</option>
+					<option value='Employee Referral'>Employee Referral</option>
+					<option value='External Referral'>External Referral</option>
+					<option value='Online Store'>Online Store</option>
+					<option value='X (Twitter)'>X (Twitter)</option>
+					<option value='Facebook'>Facebook</option>
+					<option value='Partner'>Partner</option>
+					<option value='Website'>Website</option>
+					<option value='Public Relations'>Public Relations</option>
+					<option value='Sales Email Alias'>Sales Email Alias</option>
+					<option value='Seminar Partner'>Seminar Partner</option>
+					<option value='Internal Seminar'>Internal Seminar</option>
+					<option value='Trade Show'>Trade Show</option>
+					<option value='Web Download'>Web Download</option>
+					<option selected value='Web Research'>Web Research</option>
+					<option value='Chat'>Chat</option>
+				</select>
+				<div class='zcwf_col_help'></div>
+			</div>
+		</div>
+		<div class='zcwf_row'>
+			<div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+				<label for='Email'>Email</label>
+			</div>
+			<div class='zcwf_col_fld'>
+				<input type='text' ftype='email' autocomplete='false' id='Email' aria-required='false' aria-label='Email' name='Email' aria-valuemax='100' crmlabel='' maxlength='100'></input>
+				<div class='zcwf_col_help'></div>
+			</div>
+		</div>
+		<div class='zcwf_row'>
+			<div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+				<label for='Phone'>Phone</label>
+			</div>
+			<div class='zcwf_col_fld'>
+				<input type='text' id='Phone' aria-required='false' aria-label='Phone' name='Phone' aria-valuemax='30' maxlength='30'></input>
+				<div class='zcwf_col_help'></div>
+			</div>
+		</div>
+		<div class='zcwf_row'>
+			<div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
+				<label for='Description'>Description</label>
+			</div>
+			<div class='zcwf_col_fld'>
+				<textarea style='font-family: Arial, sans-serif;' aria-multiline='true' id='Description' aria-required='false' aria-label='Description' name='Description'></textarea>
+				<div class='zcwf_col_help'></div>
+			</div>
+		</div>
+		<input type='text' type='hidden' style='display: none;' name='aG9uZXlwb3Q' value=''/>
+		<div class='zcwf_row'>
+			<div class='zcwf_col_lab'></div>
+			<div class='zcwf_col_fld'>
+				<input type='submit' id='formsubmit' role='button' class='formsubmit zcwf_button' value='Submit' aria-label='Submit' title='Submit'>
+				<input type='reset' class='zcwf_button' role='button' name='reset' value='Reset' aria-label='Reset' title='Reset'>
+			</div>
+		</div>
+		<script>
+			function addAriaSelected7516066000000694302(){
+				var optionElem = event.target;
+				var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
+				if (previousSelectedOption) {
+					previousSelectedOption.removeAttribute('aria-selected');
+				}
+				optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected = 'true';
+			}
+			function validateEmail7516066000000694302(){
+				var form = document.forms['WebToLeads7516066000000694302'];
+				var emailFld = form.querySelectorAll('[ftype=email]');
+				var i;
+				for(i = 0; i < emailFld.length; i++ ) {
+					var emailVal = emailFld[i].value;
+					if ((emailVal.replace(/^\s+|\s+$/g,'')).length != 0) {
+						var atpos = emailVal.indexOf('@');
+						var dotpos = emailVal.lastIndexOf('.');
+						if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+							alert('Please enter a valid email address. ');
+							emailFld[i].focus();
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+			function checkMandatory7516066000000694302(isAjax){
+				var mndFileds = new Array('Last Name');
+				var fldLangVal = new Array('Last Name');
+				for (i = 0; i < mndFileds.length; i++ ) {
+					var fieldObj = document.forms['WebToLeads7516066000000694302'][mndFileds[i]];
+					if (fieldObj) {
+						if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length == 0) {
+							if (fieldObj.type == 'file') {
+								alert('Please select a file to upload.');
+								fieldObj.focus();
+								return false;
+							}
+							alert(fldLangVal[i] + ' cannot be empty.');
+							fieldObj.focus();
+							return false;
+						} else if (fieldObj.nodeName == 'SELECT') {
+							if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+								alert(fldLangVal[i] + ' cannot be none.');
+								fieldObj.focus();
+								return false;
+							}
+						} else if (fieldObj.type == 'checkbox') {
+							if (fieldObj.checked == false) {
+								alert('Please accept  ' + fldLangVal[i]);
+								fieldObj.focus();
+								return false;
+							}
+						}
+						try{
+							if (fieldObj.name == 'Last Name') {
+								name = fieldObj.value;
+							}
+						} catch (e){}
+					}
+				}
+				if ( !validateEmail7516066000000694302() ) {
+					return false;
+				}
+				var urlparams = new URLSearchParams(window.location.search);
+				if (urlparams.has('service') && (urlparams.get('service') === 'smarturl') ) {
+					var webform = document.getElementById('webform7516066000000694302');
+					var service = urlparams.get('service');
+					var smarturlfield = document.createElement('input');
+					smarturlfield.setAttribute('type', 'hidden');
+					smarturlfield.setAttribute('value', service);
+					smarturlfield.setAttribute('name', 'service');
+					webform.appendChild(smarturlfield);
+				}
+				document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+			}
+			_wFa_ajax_will_be_replaced = false;
+			if (typeof _wfa_fstprtcken == 'undefined') {
+				_wfa_fstprtcken = {};
+			}
+			_wfa_fstprtcken[7516066000000694302] = true;
+			function tooltipShow7516066000000694302(el){
+				var tooltip = el.nextElementSibling;
+				var tooltipDisplay = tooltip.style.display;
+				if (tooltipDisplay == 'none') {
+					var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+					for (i = 0; i < allTooltip.length; i++ ) {
+						allTooltip[i].style.display = 'none';
+					}
+					tooltip.style.display = 'block';
+				} else {
+					tooltip.style.display = 'none';
+				}
+			}
+		</script>
+		<!-- Do not remove this --- Analytics Tracking code starts -->
+		<script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=d8a068cd93386f9bd7c5e5b4891755e4300835b2bf4df55a4bc75e5534a0c6584a7aa5ccf0140b9780e5925242808429gid5e2d9ecd503cabafec9faaa7d6d63a816ed8725310deb26718d9a4c2d4fe9d11gid0c02a9f7ce940a5f4eb26aa1e65d695e0c433b24ab978fa53be5a646d1200e0dgida4499a6d1a30e2706640bab3b8660a0f1748329c0d7f1df5ec68dbfb139e4bb8&tw=d239f218cc345dd0b175646cdda94c1b758511979cb91309482f679cfd965fd0&version=v2'></script>
+		<!-- Do not remove this --- Analytics Tracking code ends. -->
+	</form>
+</div>
 <!-- ===== End Zoho Web-to-Lead Form ===== -->
 
     </div>
@@ -874,14 +831,14 @@
       <p style="font-size:13px; max-width:260px;">Oman's trusted automotive group since 1972 — vehicles, parts, service and tyres.</p>
     </div>
     <div>
-      <h4>ABOUT</h4>
+      <h4>About</h4>
       <ul>
         <li><a href="#about">History</a></li>
         <li><a href="#about">Mission &amp; Vision</a></li>
       </ul>
     </div>
     <div>
-      <h4>AFTER SALES</h4>
+      <h4>After Sales</h4>
       <ul>
         <li><a href="#network">Parts</a></li>
         <li><a href="#network">Service</a></li>
@@ -889,7 +846,7 @@
       </ul>
     </div>
     <div>
-      <h4>BRAND</h4>
+      <h4>Brand</h4>
       <ul>
         <li><a href="#brands">Mazda</a></li>
         <li><a href="#brands">JAC</a></li>
@@ -898,7 +855,7 @@
       </ul>
     </div>
     <div>
-      <h4>OMAN</h4>
+      <h4>Oman</h4>
       <ul>
         <li>+968 24229100</li>
         <li>tacgen@towellauto.com</li>
@@ -911,6 +868,101 @@
     <span>Rebuilt landing page with integrated CRM lead capture</span>
   </div>
 </footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  // ---- Header shrink-on-scroll + back-to-top visibility ----
+  var header = document.querySelector('header');
+  var backToTop = document.getElementById('backToTop');
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    header.classList.toggle('scrolled', y > 40);
+    backToTop.classList.toggle('visible', y > 500);
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  backToTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // ---- Mobile nav toggle ----
+  var navToggle = document.getElementById('navToggle');
+  var siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', function(){
+    var isOpen = siteNav.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  var submenuParent = document.querySelector('#siteNav li.has-submenu');
+  if (submenuParent){
+    submenuParent.querySelector('a').addEventListener('click', function(e){
+      if (window.innerWidth <= 1000){
+        e.preventDefault();
+        submenuParent.classList.toggle('submenu-open');
+      }
+    });
+  }
+  siteNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (window.innerWidth <= 1000 && a.closest('.submenu') === null){
+        siteNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // ---- Scroll-reveal ----
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // ---- Animated counters ----
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1100;
+    var start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window && counters.length){
+    var counterIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          animateCount(entry.target);
+          counterIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.6});
+    counters.forEach(function(el){ counterIo.observe(el); });
+  } else {
+    counters.forEach(function(el){
+      el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
